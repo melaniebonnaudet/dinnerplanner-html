@@ -6,21 +6,22 @@ var DinnerModel = function() {
 
 
     var num = 5;
+    type = [];
+    
 	this.setNumberOfGuests = function(num) {
 		//TODO Lab 1
-        
-  
 	}
 	
 	this.getNumberOfGuests = function() {
 		//TODO Lab 1
         return num;
-
 	}
 
 	//Returns the dish that is on the menu for selected type 
 	this.getSelectedDish = function(type) {
 		//TODO Lab 1
+        getDish(type);
+        return type;
 	}
 
 	//Returns all the dishes on the menu.
