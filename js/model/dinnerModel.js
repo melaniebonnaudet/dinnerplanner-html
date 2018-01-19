@@ -7,12 +7,12 @@ var DinnerModel = function() {
     var num = 5;
 	this.setNumberOfGuests = function(num) {
 		//TODO Lab 1
-        numberofGuests = num;
+  
 	}
 	
 	this.getNumberOfGuests = function() {
 		//TODO Lab 1
-        return numberofGuests;
+        return num;
 	}
 
 	//Returns the dish that is on the menu for selected type 
