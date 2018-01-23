@@ -18,46 +18,16 @@
     background-color: lightgray;
     color: black;
     text-align: center;
+}  
+        
+.mydinner{
+    font-size: 30px;
 }
         
-.sidenav {
-    background-color: lightgray;
-    display: flex;
-    align-items: stretch;
-    min-width: 250px;
-    max-width: 250px;
-        }
-        
-input[type=number]::-webkit-inner-spin-button {
-    opacity: 1;
+hr {
+    border-color: darkslategray;
 }
-        
-input[type=number]{
-    width: 40px;
-} 
-
-.price_header {
-    background-color: darkgray;
-}        
-        
-.dishname {
-    text-align: left;
-    font-weight: bold;
-}
-        
-.cost {
-    text-align: right;
-    font-weight: bold;
-}
-        
-.price {
-    text-align: right;
-    color: red;
-} 
-        
-.searchbar {
-    background-color: lightslategray;
-}        
+    
     </style>
       
   </head>
@@ -67,53 +37,11 @@ input[type=number]{
         <h1 class="text-center">Dinner planner</h1>
     </div> 
       
-
-    <div class="col-xs-2 sidenav">
-	<div class="container">
-     
-    <div class="sidebar-header">
-        <h3>My Dinner</h3>
-    </div>       
-            
-    <p>
-        <label>Number of guests:</label>
-        <input type="number" value="3" min="0"/>
-    </p>
-        
-    <p class ="price_header">        
-        <span class="dishname">Dish name</span>
-        <span class="cost">Cost</span>
-    </p>
-
-    <p>
-        <span class="price">SEK 0.00</span>
-    </p>
-        
-    <p>        
-        <button class="btn btn-warning">Confirm dinner</button>
-    </p>      
-        </div>
-    </div>
-      
-     <div class="col-sm-9 searchbar">
-   
-        <div class="seachbar-header">
-         <h4>FIND A DISH</h4>
-        </div>
-         
-        <input type="text" placeholder="Enter key words">
-         
-        <select name="typeOfDish">
-          <option value="appetizer">All</option>
-            <option value="starter">Starter</option>
-          <option value="main course">Main course</option>
-          <option value="dessert">Dessert</option>
-          <option value="appetizer">Appetizer</option>
-        </select>
-         
-         <button class="btn btn-warning">search</button>
-     
-      </div>
+      <p>
+      <span class="mydinner">My Dinner: 3 people</span>   
+      <button class="btn btn-warning" style="float: right;">Go back and edit dinner</button>
+      </p>
+   <hr>
       
     <div class="row">
   <div class="col-md-2">
@@ -162,6 +90,10 @@ input[type=number]{
   </div>
         
 </div>
+      
+      <hr>
+      
+      <button class="btn btn-warning center-block">Print Full Recipe</button>
       
     
     <footer class="footer">
