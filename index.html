@@ -9,26 +9,56 @@
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="http://netdna.bootstrapcdn.com/bootstrap/3.1.0/css/bootstrap.min.css">
 
+    <style>
+.footer {
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    background-color: lightgray;
+    color: black;
+    text-align: center;
+}
+        
+.sidenav {
+    background-color: lightgray;
+        }
+        
+ input[type=number]::-webkit-inner-spin-button {
+  opacity: 1;
+}
+        
+        input[type=number]{
+    width: 40px;
+} 
+    </style>
+      
   </head>
   <body>
     
 	<div class="jumbotron">
-        <h1>Dinner planner</h1>
+        <h1 class="text-center">Dinner planner</h1>
     </div> 
     
-    <div class="col-sm-2 sidenav">
+    <div class="col-xs-2 sidenav">
 	<div class="container">
 		<div id="exampleView">
-			<div>
-				Number of guests: <span id="numberOfGuests"></span>
-			</div>
-			<div>
-          <button id="minusGuest" class="btn"><span class="glyphicon glyphicon-minus"></span></button>
-				<button id="plusGuest" class="btn"><span class="glyphicon glyphicon-plus"></span></button>
-			</div>
+            
+    <div>
+        <label>Number of guests:</label>
+        <input type="number" value="3" min="0"/>
+    </div>
+            
+			
         </div>
 		</div>
 	</div>
+      
+    
+      
+    <footer class="footer">
+        <p>Footer</p>
+    </footer>
 
     <!-- jQuery -->
     <script src="https://code.jquery.com/jquery.js"></script>
