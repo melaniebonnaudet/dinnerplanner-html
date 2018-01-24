@@ -35,10 +35,6 @@
     float: none;
     display: block;
   }
-  .sidebar-nav .navbar li a {
-    padding-top: 12px;
-    padding-bottom: 12px;
-  }
 }
         
 input[type=number]::-webkit-inner-spin-button {
@@ -66,11 +62,15 @@ input[type=number]{
 .price {
     text-align: right;
     color: red;
-} 
+}   
         
-.searchbar {
-    background-color: lightslategray;
-}        
+#total_price {
+    text-align: right;
+}
+
+        hr {
+    border-color: black;
+}
     </style>
       
   </head>
@@ -87,7 +87,6 @@ input[type=number]{
       <div class="navbar navbar-default" role="navigation">
         <div class="navbar-header">
           <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".sidebar-navbar-collapse">
-            <span class="sr-only">Toggle navigation</span>
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
@@ -100,13 +99,17 @@ input[type=number]{
         <label>Number of guests:</label>
         <input type="number" value="3" min="0"/>
     </p></li>
-            <li> <p class ="price_header">        
+            <li><div class="col-sm-8" id="dishname" style="background-color: darkgray">
         <span class="dishname">Dish name</span>
+            </div>
+        <div class="col-sm-4" style="background-color: darkgray">
         <span class="cost">Cost</span>
-    </p></li>
-            <li> <p>
-        <span class="price">SEK 0.00</span>
-    </p></li>
+            </div></li>
+            <li><div id="total_price" class="col-sm-12">
+    <p>
+        <span class="price">SEK 72.20</span>
+    </p>
+            </div></li>
                <p>        
         <button class="btn btn-warning">Confirm dinner</button>
     </p>     
@@ -115,8 +118,8 @@ input[type=number]{
       </div>
     </div>
   </div>
-  <div class="col-sm-9">
-    <div class="col-sm-9 searchbar">
+  <div class="col-sm-8">
+    
    
         <div class="seachbar-header">
          <h4>FIND A DISH</h4>
@@ -134,9 +137,9 @@ input[type=number]{
          
          <button class="btn btn-warning">search</button>
      
-      </div>
+      <hr>
       
-    <div class="col-sm-9">
+   
   <div class="col-md-2">
     <div class="thumbnail">
         <img src="images/bakedbrie.jpg" alt="Baked Brie" style="width:100%">
@@ -182,7 +185,7 @@ input[type=number]{
     </div>
   </div>
         
-</div>
+
       
   </div>
 </div>

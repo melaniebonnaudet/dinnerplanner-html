@@ -57,7 +57,11 @@ input[type=number]{
         
 .searchbar {
     background-color: lightslategray;
-}        
+}     
+        
+#total_price {
+    text-align: right;
+}
     </style>
       
   </head>
@@ -80,14 +84,18 @@ input[type=number]{
         <input type="number" value="3" min="0"/>
     </p>
         
-    <p class ="price_header">        
+  <div class="col-sm-8" id="dishname" style="background-color: darkgray">
         <span class="dishname">Dish name</span>
+            </div>
+        <div class="col-sm-4" style="background-color: darkgray">
         <span class="cost">Cost</span>
-    </p>
+            </div>
 
+    <div id="total_price" class="col-sm-12">
     <p>
-        <span class="price">SEK 0.00</span>
+        <span class="price">SEK 72.20</span>
     </p>
+            </div>
         
     <p>        
         <button class="btn btn-warning">Confirm dinner</button>
