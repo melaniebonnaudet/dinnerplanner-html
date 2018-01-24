@@ -20,13 +20,26 @@
     text-align: center;
 }
         
-.sidenav {
-    background-color: lightgray;
-    display: flex;
-    align-items: stretch;
-    min-width: 250px;
-    max-width: 250px;
-        }
+@media (min-width: 768px) {
+  .sidebar-nav .navbar .navbar-collapse {
+    padding: 0;
+    max-height: none;
+  }
+  .sidebar-nav .navbar ul {
+    float: none;
+  }
+  .sidebar-nav .navbar ul:not {
+    display: block;
+  }
+  .sidebar-nav .navbar li {
+    float: none;
+    display: block;
+  }
+  .sidebar-nav .navbar li a {
+    padding-top: 12px;
+    padding-bottom: 12px;
+  }
+}
         
 input[type=number]::-webkit-inner-spin-button {
     opacity: 1;
@@ -68,34 +81,42 @@ input[type=number]{
     </div> 
       
 
-    <div class="col-xs-2 sidenav">
-	<div class="container">
-     
-    <div class="sidebar-header">
-        <h3>My Dinner</h3>
-    </div>       
-            
-    <p>
+ <div class="row">
+  <div class="col-sm-3">
+    <div class="sidebar-nav">
+      <div class="navbar navbar-default" role="navigation">
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".sidebar-navbar-collapse">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <span class="visible-xs navbar-brand">My Dinner</span>
+        </div>
+        <div class="navbar-collapse collapse sidebar-navbar-collapse">
+          <ul class="nav navbar-nav">
+            <li> <p>
         <label>Number of guests:</label>
         <input type="number" value="3" min="0"/>
-    </p>
-        
-    <p class ="price_header">        
+    </p></li>
+            <li> <p class ="price_header">        
         <span class="dishname">Dish name</span>
         <span class="cost">Cost</span>
-    </p>
-
-    <p>
+    </p></li>
+            <li> <p>
         <span class="price">SEK 0.00</span>
-    </p>
-        
-    <p>        
+    </p></li>
+               <p>        
         <button class="btn btn-warning">Confirm dinner</button>
-    </p>      
-        </div>
+    </p>     
+          </ul>
+        </div><!--/.nav-collapse -->
+      </div>
     </div>
-      
-     <div class="col-sm-9 searchbar">
+  </div>
+  <div class="col-sm-9">
+    <div class="col-sm-9 searchbar">
    
         <div class="seachbar-header">
          <h4>FIND A DISH</h4>
@@ -163,6 +184,11 @@ input[type=number]{
         
 </div>
       
+  </div>
+</div>
+
+      
+     
     
     <footer class="footer">
         <p>Footer</p>

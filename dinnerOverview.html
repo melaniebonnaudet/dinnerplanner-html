@@ -27,6 +27,16 @@
 hr {
     border-color: darkslategray;
 }
+        #dishprice {
+            text-align: right;
+            color: red;
+            font-weight: bold;
+        }
+        
+        .line {
+    border-left: 1px solid black;
+}
+     
     
     </style>
       
@@ -43,12 +53,13 @@ hr {
       </p>
    <hr>
       
-    <div class="row">
+    <div class="col-sm-12">
   <div class="col-md-2">
     <div class="thumbnail">
         <img src="images/bakedbrie.jpg" alt="Baked Brie" style="width:100%">
         <div class="caption">
           <p>Baked Brie</p>
+            <p id="dishprice">77.20 SEK</p>
         </div>
     </div>
 </div>
@@ -58,6 +69,7 @@ hr {
         <img src="images/icecream.jpg" alt="Ice Cream" style="width:100%">
         <div class="caption">
           <p>Ice Cream</p>
+             <p id="dishprice">180.60 SEK</p>
         </div>
     </div>
   </div>
@@ -67,34 +79,24 @@ hr {
         <img src="images/meatballs.jpg" alt="Meatballs" style="width:100%">
         <div class="caption">
           <p>Meatballs</p>
+             <p id="dishprice">83.40 SEK</p>
         </div>
     </div>
-  </div>
-        
-    <div class="col-md-2">
-    <div class="thumbnail">
-        <img src="images/sourdough.jpg" alt="Sourdough" style="width:100%">
-        <div class="caption">
-          <p>Sourdough</p>
-        </div>
-    </div>
-  </div>
-        
-        <div class="col-md-2">
-    <div class="thumbnail">
-        <img src="images/toast.jpg" alt="Toast" style="width:100%">
-        <div class="caption">
-          <p>Toast</p>
-        </div>
-    </div>
-  </div>
-        
+  </div> 
+
+      <div class="col-md-2 line">
+            <span>Total:<br></span>
+                <b style="color: red">341.20 SEK</b> 
+      </div>    
 </div>
       
+     
+      
+      
+      <div class="col-sm-12">
       <hr>
-      
       <button class="btn btn-warning center-block">Print Full Recipe</button>
-      
+      </div>
     
     <footer class="footer">
         <p>Footer</p>

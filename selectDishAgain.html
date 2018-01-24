@@ -34,11 +34,7 @@ input[type=number]::-webkit-inner-spin-button {
         
 input[type=number]{
     width: 40px;
-} 
-
-.price_header {
-    background-color: darkgray;
-}        
+}    
         
 .dishname {
     text-align: left;
@@ -54,6 +50,10 @@ input[type=number]{
     text-align: right;
     color: red;
 } 
+    
+#total_price {
+    text-align: right;
+}
    
     </style>
       
@@ -77,23 +77,32 @@ input[type=number]{
         <input type="number" value="3" min="0"/>
     </p>
         
-    <p class ="price_header">        
+    
+        <div class="col-sm-8" id="dishname" style="background-color: darkgray">
         <span class="dishname">Dish name</span>
+            </div>
+        <div class="col-sm-4" style="background-color: darkgray">
         <span class="cost">Cost</span>
-    </p>
+            </div>
+   
         
      
-    <div class="col-sm-3">
+    <div class="col-sm-8">
         <span>Baked Brie</span>
     </div>
     <div class="col-sm-3">
         <span>72.20</span>
     </div>
         <BR></BR>
+    
+       
         
+        <div id="total_price" class="col-sm-12">
     <p>
         <span class="price">SEK 72.20</span>
     </p>
+            </div>
+        
         
     <p>        
         <button class="btn btn-warning">Confirm dinner</button>
@@ -121,33 +130,48 @@ input[type=number]{
       </div> 
    
       
-      <div class="col-sm-4 dish">
-      <div class="panel panel-default">
-          <div class = "ingredients-header">
+  
+      <div class="col-sm-5 dish">
+      <div class="panel panel-warning">
+          <div class = "panel-heading">
         <h3>INGREDIENTS FOR 3 PEOPLE</h3>
         </div>
-          <hr>
-          <div class="container"> 
-          <div class="col-sm-1">
+          
+          <div class="panel-body">
+              
+          <div class="container col-sm-12">
+              <hr>
+          <div class="col-sm-3">
           <p>amount</p>
-        <p>amount</p>
+            <p>amount</p>
           </div>
-           <div class="col-sm-2">
+           <div class="col-sm-6">
           <p>ingredient</p>
             <p>ingredient</p>
           </div>
-          <div class="col-sm-1">
+          <div class="col-sm-3">
           <p>SEK 0.00</p>
         <p>SEK 0.00</p>
           </div>
-          </div>
-          
+              </div>
+              
+        <div class="col-sm-12">
           <hr>
-        
+            <div class="col-sm-9">
+            <p>
         <button class="btn btn-warning">add to menu</button>
+                </p>
+            </div>
+            <div class="col-sm-3">
+              <p>
           <span class="price">SEK 0.00</span>
-      </div>
-          </div> 
+                  </p>
+            </div>
+     </div>
+              
+              </div>
+          </div>
+          </div>
       
     
     <footer class="footer">
