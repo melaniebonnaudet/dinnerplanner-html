@@ -4,6 +4,8 @@ $(function() {
 	
 	// And create the instance of ExampleView
 	var exampleView = new ExampleView($("#exampleView"), model);
+    
+    var ingredientsView = new IngredientsView($("#ingredientsView"), model);
 
 	/**
 	 * IMPORTANT: app.js is the only place where you are allowed to
