@@ -39,6 +39,12 @@ var DinnerModel = function() {
 	this.getFullMenu = function() {
 		return menuDishes;
 	}
+    
+    this.getstuff = function() {
+        for (key in dishes) {
+            dishes[key].id
+        }
+    }
 
 	//Returns all ingredients for all the dishes on the menu.
 	this.getAllIngredients = function() {  
@@ -120,7 +126,7 @@ var DinnerModel = function() {
 	  	return dish.type == type && found;
 	  });	
 	}
-
+    
 	//function that returns a dish of specific ID
 	this.getDish = function (id) {
 	  for(key in dishes){
