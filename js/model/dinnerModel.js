@@ -7,6 +7,10 @@ var DinnerModel = function() {
 
 
     var numberOfGuests = 5;
+<<<<<<< HEAD
+
+=======
+>>>>>>> 48ce9fb7b7b7615d13ae961c9059edf514547145
     var menuDishes = [1, 101, 202];
     var menuIngredients = [];
     
