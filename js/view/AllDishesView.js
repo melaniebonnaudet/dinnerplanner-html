@@ -7,10 +7,11 @@ var AllDishesView = function (container, model) {
 //var appendshit = '<div class="col-md-2"><div class="thumbnail"><img src="images/bakedbrie.jpg" alt="Baked Brie" style="width:100%"<div class="caption"><p id="dishName">' + dish.name + '</p></div></div></div>';
 //var dishes;
 
-    
+  
     
 $(document).ready(function(){
-    for i in model.getAllDishNames() {
+    var i;
+    for (i in model.getAllDishNames()) {
     var dishes = '<div class="col-md-2"><div class="thumbnail"><img src="images/bakedbrie.jpg" alt="Baked Brie" style="width:100%"<div class="caption"><p id="dishName">' + i + '</p></div></div></div>';
         $("#allDishesView").append(dishes);
         } 
