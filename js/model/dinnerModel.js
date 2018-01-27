@@ -102,15 +102,6 @@ var DinnerModel = function() {
             menuDishes[2] = 0;
         }   
 	}
-    
-    //gets all dish names
-    this.getAllDishNames = function() {
-        var key;
-        for (key in dishes) {
-            dishNames.push(dishes[key].name);
-        }
-        return dishNames;
-    }
 
 	//function that returns all dishes of specific type (i.e. "starter", "main dish" or "dessert")
 	//you can use the filter argument to filter out the dish by name or ingredient (use for search)
@@ -144,6 +135,9 @@ var DinnerModel = function() {
 		}
 	}
 
+    this.getDishes = function() {
+        return dishes;
+    }
 
 	// the dishes variable contains an array of all the 
 	// dishes in the database. each dish has id, name, type,
