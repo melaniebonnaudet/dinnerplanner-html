@@ -1,19 +1,22 @@
-var AllDishesView = function (container, model) {
-
+var AllDishesView = function (container, model) {    
     
-    
-var dish = model.getDish(1);
+//var dish = model.getDish(1);
 //console.log(dish.name);
 //container.find("#dishName").html(dish.name);   
     
-var appendshit = '<div class="col-md-2"><div class="thumbnail"><img src="images/bakedbrie.jpg" alt="Baked Brie" style="width:100%"<div class="caption"><p id="dishName">' + dish.name + '</p></div></div></div>';
+//var appendshit = '<div class="col-md-2"><div class="thumbnail"><img src="images/bakedbrie.jpg" alt="Baked Brie" style="width:100%"<div class="caption"><p id="dishName">' + dish.name + '</p></div></div></div>';
+//var dishes;
+
+    
     
 $(document).ready(function(){
-    
-        $("#allDishesView").append(appendshit);
+    for i in model.getAllDishNames() {
+    var dishes = '<div class="col-md-2"><div class="thumbnail"><img src="images/bakedbrie.jpg" alt="Baked Brie" style="width:100%"<div class="caption"><p id="dishName">' + i + '</p></div></div></div>';
+        $("#allDishesView").append(dishes);
+        } 
 });
     
-    
+   
 //var dishes = model.getAllDishes('starter')
     // for (i, i < dishes.length, i++)
     //dishes[i]

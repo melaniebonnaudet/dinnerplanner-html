@@ -7,12 +7,10 @@ var DinnerModel = function() {
 
 
     var numberOfGuests = 5;
-<<<<<<< HEAD
 
-=======
->>>>>>> 48ce9fb7b7b7615d13ae961c9059edf514547145
     var menuDishes = [1, 101, 202];
     var menuIngredients = [];
+    var dishNames = [];
     
 	this.setNumberOfGuests = function(num) {
 		numberOfGuests = num;
@@ -43,18 +41,13 @@ var DinnerModel = function() {
 	this.getFullMenu = function() {
 		return menuDishes;
 	}
-    
-    this.getstuff = function() {
-        for (key in dishes) {
-            dishes[key].id
-        }
-    }
 
 	//Returns all ingredients for all the dishes on the menu.
 	this.getAllIngredients = function() {  
         var theMenuDishKey=0;
-
-	    for(key in dishes){
+        var key;
+        var i;
+        for(key in dishes) {
 			if(dishes[key].id == menuDishes[0] || dishes[key].id == menuDishes[1] || dishes[key].id == menuDishes[2]) {
 				theMenuDishKey = key;
 				for(i in dishes[theMenuDishKey].ingredients) {
@@ -80,6 +73,7 @@ var DinnerModel = function() {
 	//it is removed from the menu and the new one added.
 	this.addDishToMenu = function(id) {
 		//menuDishes.push(id);
+        var dish;
         dish = this.getDish(id);
         switch (dish.type) {
             case "starter": 
@@ -108,12 +102,21 @@ var DinnerModel = function() {
             menuDishes[2] = 0;
         }   
 	}
+    
+    //gets all dish names
+    this.getAllDishNames = function() {
+        var key;
+        for (key in dishes) {
+            dishNames.push(dishes[key].name);
+        }
+        return dishNames;
+    }
 
 	//function that returns all dishes of specific type (i.e. "starter", "main dish" or "dessert")
 	//you can use the filter argument to filter out the dish by name or ingredient (use for search)
 	//if you don't pass any filter all the dishes will be returned
 	this.getAllDishes = function (type,filter) {
-	  return dishes.filter(function(dish) {
+        return dishes.filter(function(dish) {
 		var found = true;
 		if(filter){
 			found = false;
@@ -127,13 +130,14 @@ var DinnerModel = function() {
 				found = true;
 			}
 		}
-	  	return dish.type == type && found;
-	  });	
+            return dish.type == type && found;
+        });	
 	}
     
 	//function that returns a dish of specific ID
 	this.getDish = function (id) {
-	  for(key in dishes){
+        var key;
+        for(key in dishes) {
 			if(dishes[key].id == id) {
 				return dishes[key];
 			}
