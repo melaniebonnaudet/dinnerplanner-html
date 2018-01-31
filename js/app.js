@@ -3,6 +3,7 @@ $(function() {
 	var model = new DinnerModel();
 	
 	// And create the instance of ExampleView
+    
 	var exampleView = new ExampleView($("#exampleView"), model);
     
     var sidebarView = new SidebarView($("#sidebarView"), model);
@@ -10,6 +11,8 @@ $(function() {
     //var ingredientsView = new IngredientsView($("#ingredientsView"), model);  
     
     var allDishesView = new AllDishesView($("#allDishesView"), model);
+    
+
 
 	/**
 	 * IMPORTANT: app.js is the only place where you are allowed to
@@ -19,3 +22,11 @@ $(function() {
 	 */
 
 });
+
+//go from home to allDishes-(index-)view
+$("#allDishes").hide();
+    
+$("#createNewDinner").click(function(){
+        $("#allDishes").show();
+        $("#home").hide();
+    });

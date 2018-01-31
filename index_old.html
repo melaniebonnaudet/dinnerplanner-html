@@ -20,22 +20,13 @@
     text-align: center;
 }
         
-@media (min-width: 768px) {
-  .sidebar-nav .navbar .navbar-collapse {
-    padding: 0;
-    max-height: none;
-  }
-  .sidebar-nav .navbar ul {
-    float: none;
-  }
-  .sidebar-nav .navbar ul:not {
-    display: block;
-  }
-  .sidebar-nav .navbar li {
-    float: none;
-    display: block;
-  }
-}
+.sidenav {
+    background-color: lightgray;
+    display: flex;
+    align-items: stretch;
+    min-width: 250px;
+    max-width: 250px;
+        }
         
 input[type=number]::-webkit-inner-spin-button {
     opacity: 1;
@@ -55,22 +46,21 @@ input[type=number]{
 }
         
 .cost {
-   
+    text-align: right;
     font-weight: bold;
-    float: right;
 }
         
 .price {
     text-align: right;
     color: red;
-}   
+} 
+        
+.searchbar {
+    background-color: lightslategray;
+}     
         
 #total_price {
     text-align: right;
-}
-
-        hr {
-    border-color: black;
 }
     </style>
       
@@ -82,45 +72,38 @@ input[type=number]{
     </div> 
       
 
- <div class="row">
-  <div class="col-sm-3" id="sidebarView">
-    <div class="sidebar-nav">
-      <div class="navbar navbar-default" role="navigation">
-        <div class="navbar-header">
-          <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".sidebar-navbar-collapse">
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-          </button>
-          <span class="visible-xs navbar-brand">My Dinner</span>
-        </div>
-        <div class="navbar-collapse collapse sidebar-navbar-collapse">
-          <ul class="nav navbar-nav">
-            <li> <p>
+    <div class="col-xs-2 sidenav">
+	<div class="container">
+     
+    <div class="sidebar-header">
+        <h3>My Dinner</h3>
+    </div>       
+            
+    <p>
         <label>Number of guests:</label>
-        <input id="guests" type="number" value="3" min="0"/>
-    </p></li>
-            <li><div class="col-xs-8" id="dishname" style="background-color: darkgray">
+        <input type="number" value="3" min="0"/>
+    </p>
+        
+  <div class="col-sm-8" id="dishname" style="background-color: darkgray">
         <span class="dishname">Dish name</span>
-            </div>
-        <div class="col-xs-4" style="background-color: darkgray">
+    </div>
+        <div class="col-sm-4" style="background-color: darkgray">
         <span class="cost">Cost</span>
-            </div></li>
-            <li><div id="total_price" class="col-sm-12">
+            </div>
+
+    <div id="total_price" class="col-sm-12">
     <p>
         <span class="price">SEK 72.20</span>
     </p>
-            </div></li>
-               <p>        
+            </div>
+        
+    <p>        
         <button class="btn btn-warning">Confirm dinner</button>
-    </p>     
-          </ul>
-        </div><!--/.nav-collapse -->
-      </div>
+    </p>      
+        </div>
     </div>
-  </div>
-  <div class="col-sm-8">
-    
+      
+     <div class="col-sm-9 searchbar">
    
         <div class="seachbar-header">
          <h4>FIND A DISH</h4>
@@ -136,26 +119,25 @@ input[type=number]{
           <option value="appetizer">Appetizer</option>
         </select>
          
-         <button class="btn btn-warning" onclick="showStarters()">search</button>
+         <button class="btn btn-warning">search</button>
      
-      <hr>
- <div class="row">     
-<div id="allDishesView"> 
-    
-<!--   <div class="col-md-2" id="bakedbrie">
+      </div>
+      
+    <div class="col-sm-9">
+  <div class="col-md-2">
     <div class="thumbnail">
         <img src="images/bakedbrie.jpg" alt="Baked Brie" style="width:100%">
         <div class="caption">
-          <p id="dishName">Baked Brie</p>
+          <p>Baked Brie</p>
         </div>
     </div>
 </div>
-       
+        
   <div class="col-md-2">
     <div class="thumbnail">
         <img src="images/icecream.jpg" alt="Ice Cream" style="width:100%">
         <div class="caption">
-          <p id="dishName">Ice Cream</p>
+          <p>Ice Cream</p>
         </div>
     </div>
   </div>
@@ -164,7 +146,7 @@ input[type=number]{
     <div class="thumbnail">
         <img src="images/meatballs.jpg" alt="Meatballs" style="width:100%">
         <div class="caption">
-          <p id="dishName">Meatballs</p>
+          <p>Meatballs</p>
         </div>
     </div>
   </div>
@@ -173,7 +155,7 @@ input[type=number]{
     <div class="thumbnail">
         <img src="images/sourdough.jpg" alt="Sourdough" style="width:100%">
         <div class="caption">
-          <p id="dishName">Sourdough</p>
+          <p>Sourdough</p>
         </div>
     </div>
   </div>
@@ -182,20 +164,13 @@ input[type=number]{
     <div class="thumbnail">
         <img src="images/toast.jpg" alt="Toast" style="width:100%">
         <div class="caption">
-          <p id="dishName">Toast</p>
+          <p>Toast</p>
         </div>
     </div>
-  </div>  -->
+  </div>
         
-
-      
-        </div>
-      </div>
 </div>
-</div>
-
       
-     
     
     <footer class="footer">
         <p>Footer</p>
@@ -210,18 +185,6 @@ input[type=number]{
 	<script src="js/app.js"></script>
 	<script src="js/model/dinnerModel.js"></script>
 	<script src="js/view/exampleView.js"></script>
-    <script src="js/view/sidebarView.js"></script>
-    <script src="js/view/allDishesView.js"></script>
-    
-    <script>
-    function showStarters() {
-        var x = document.getElementById("myDIV");
-        if (x.style.display === "none") {
-            x.style.display = "block";
-        } else {
-            x.style.display = "none";
-        }
-    }</script>
 	<!-- TODO: Here you should include JS code for your other views -->
   </body>
 </html>

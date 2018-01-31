@@ -124,10 +124,6 @@ var DinnerModel = function() {
             return dish.type == type && found;
         });	
 	}
-<<<<<<< HEAD
-
-=======
->>>>>>> 1da9b5bead4a4660b926f12d3603b6cdc1578d5c
     
 	//function that returns a dish of specific ID
 	this.getDish = function (id) {
