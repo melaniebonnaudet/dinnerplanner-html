@@ -138,6 +138,16 @@ var DinnerModel = function() {
     this.getDishes = function() {
         return dishes;
     }
+    
+    this.addObserver = function(observer) {
+        //code here
+    }
+    
+    var notifyObservers = function(obj) {
+        //code here
+    }
+    
+    
 
 	// the dishes variable contains an array of all the 
 	// dishes in the database. each dish has id, name, type,

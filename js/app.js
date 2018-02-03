@@ -8,11 +8,13 @@ $(function() {
     
     var sidebarView = new SidebarView($("#sidebarView"), model);
     
-    //var ingredientsView = new IngredientsView($("#ingredientsView"), model);  
+    var ingredientsView = new IngredientsView($("#ingredientsView"), model);  
     
     var allDishesView = new AllDishesView($("#allDishesView"), model);
     
-
+    var startersView = new StartersView($("#startersView"), model);
+    
+    var generalStateController = new GeneralStateController();
 
 	/**
 	 * IMPORTANT: app.js is the only place where you are allowed to
@@ -20,13 +22,37 @@ $(function() {
 	 * In other places you should limit the search only to the children 
 	 * of the specific view you're working with (see exampleView.js).
 	 */
+    
+    $("#createNewDinner").click(function(){
+          generalStateController.showAllDishesView();
+        });
 
+    $("#confirmDinner").click(function(){
+         generalStateController.showDinnerOverview();
+        });
+    
+    $("#backToEditDinner").click(function(){
+        generalStateController.showAllDishesView();
+    });
+
+
+    $("#printRecipes").click(function(){
+        generalStateController.showDinnerPrintout();
+    });
+
+
+    $("#allDishesView").click(function(){
+           generalStateController.showDishDetail();
+        });
+
+    $("#backToAllDishesView").click(function(){
+           generalStateController.showAllDishesView();
+        });
 });
 
-//go from home to allDishes-(index-)view
-$("#allDishes").hide();
-    
-$("#createNewDinner").click(function(){
-        $("#allDishes").show();
-        $("#home").hide();
-    });
+
+
+
+
+
+

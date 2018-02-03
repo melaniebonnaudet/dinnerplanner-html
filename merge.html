@@ -9,17 +9,7 @@
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="http://netdna.bootstrapcdn.com/bootstrap/3.1.0/css/bootstrap.min.css">
 
-    <style>
-.footer {
-    position: fixed;
-    left: 0;
-    bottom: 0;
-    width: 100%;
-    background-color: lightgray;
-    color: black;
-    text-align: center;
-}
-        
+    <style>        
 @media (min-width: 768px) {
   .sidebar-nav .navbar .navbar-collapse {
     padding: 0;
@@ -72,6 +62,19 @@ input[type=number]{
         hr {
     border-color: black;
 }
+.mydinner{
+    font-size: 30px;
+}
+        
+#dishprice {
+            text-align: right;
+            color: red;
+            font-weight: bold;
+}
+        
+.line {
+    border-left: 1px solid black;
+}
     </style>
       
   </head>
@@ -83,15 +86,17 @@ input[type=number]{
         <h1 class="text-center">Dinner planner</h1>
     </div> 
     
+<!-- ----- HOME ----- -->      
+      
 <div id="home"> 
       <p class="text-center">Welome friend! Click to choose your dishes!</p>
       
       <button class="btn btn-warning center-block" id="createNewDinner">Create new dinner</button> 
 </div>
       
- <div id="allDishes">
-     
- <div class="row">
+<!-- ----- SIDEBAR ----- -->
+ 
+<div id="sidebar">
   <div class="col-sm-3" id="sidebarView">
     <div class="sidebar-nav">
       <div class="navbar navbar-default" role="navigation">
@@ -121,43 +126,260 @@ input[type=number]{
     </p>
             </div></li>
                <p>        
-        <button class="btn btn-warning">Confirm dinner</button>
+        <button class="btn btn-warning" id="confirmDinner">Confirm dinner</button>
     </p>     
           </ul>
         </div><!--/.nav-collapse -->
       </div>
     </div>
   </div>
+</div>
+      
+<!-- ----- DISH DETAIL ----- -->
+      
+<div id="dishDetail">
   <div class="col-sm-8">
-    
+        <div class="col-sm-6 dish">
+        <div class = "dishname-header">
+        <h3>BAKED BRIE</h3>
+        </div>
+        
+        <img src="images/bakedbrie.jpg" width="80%">
+         <div class="caption">
+          <p>Et licet quocumque oculos flexeris feminas adfatim multas spectare cirratas, quibus, si nupsissent, per aetatem ter iam nixus poterat suppetere liberorum, ad usque taedium pedibus pavimenta tergentes iactari volucriter gyris, dum exprimunt innumera simulacra, quae finxere fabulae theatrales.</p>
+        </div>
+        
+        <button class="btn btn-warning" id="backToAllDishesView">back to search</button>
+
+          <div class = "preparation-header">
+        <h3>PREPARATION</h3>
+            <p>Et licet quocumque oculos flexeris feminas adfatim multas spectare cirratas, quibus, si nupsissent, per aetatem ter iam nixus poterat suppetere liberorum, ad usque taedium pedibus pavimenta tergentes iactari volucriter gyris, dum exprimunt innumera simulacra, quae finxere fabulae theatrales.</p>
+        </div>
+      </div> 
    
+      
+      <div class="col-sm-6 dish">
+      <div class="panel panel-warning" id="ingredientsView">
+          <div class = "panel-heading">
+              <span>INGREDIENTS FOR</span> <span id="numberOfGuests">3</span> <span>PEOPLE</span>
+        </div>
+          
+          <div class="panel-body">
+              
+          <div class="container col-sm-12">
+              <hr>
+          <div class="col-sm-3">
+          <p>amount</p>
+            <p>amount</p>
+          </div>
+           <div class="col-sm-6">
+          <p>ingredient</p>
+            <p>ingredient</p>
+          </div>
+          <div class="col-sm-3">
+          <p>SEK 0.00</p>
+        <p>SEK 0.00</p>
+          </div>
+              </div>
+              
+        <div class="col-sm-12">
+          <hr>
+            <div class="col-sm-9">
+            <p>
+        <button class="btn btn-warning">add to menu</button>
+                </p>
+            </div>
+            <div class="col-sm-3">
+              <p>
+          <span class="price">SEK 0.00</span>
+                  </p>
+            </div>
+     </div>
+              
+              </div>
+          </div>
+          </div>
+    
+  </div>      
+</div>
+ 
+<!-- ----- ALL DISHES OVERVIEW ----- -->
+
+<div id="allDishes">      
+ <div class="col-sm-8">
         <div class="seachbar-header">
          <h4>FIND A DISH</h4>
         </div>
          
         <input type="text" placeholder="Enter key words">
          
-        <select name="typeOfDish" id="typeOfDish" onchange="filterType()">
-          <option value="appetizer">All</option>
-            <option value="starter">Starter</option>
-          <option value="main course">Main course</option>
-          <option value="dessert">Dessert</option>
-          <option value="appetizer">Appetizer</option>
+        <select name="typeOfDish" id="typeOfDish" onchange="myfunction()">
+          <option value="all">all</option>
+            <option value="starter">starter</option>
+          <option value="main dish">main dish</option>
+          <option value="dessert">dessert</option>
+          <option value="appetizer">appetizer</option>
         </select>
          
          <button class="btn btn-warning">search</button>
      
       <hr>
- <div class="row">     
-<div id="allDishesView"> 
-          
+    <div class="row">     
+        <div id="allDishesView"> 
+
+    <!--<div class="col-md-2" id="bakedbrie">
+    <div class="thumbnail">
+        <img src="images/bakedbrie.jpg" alt="Baked Brie" style="width:100%">
+        <button class="btn btn-block" name="yo" style="display: inline-block; position: absolute; top: 0; left: 0; width: 100%; height: 100%; opacity: 0.5;"></button>
+        <div class="caption">
+          <p id="dishName">Baked Brie</p>
+        </div>
+    </div>
+</div>
+    
+    <div class="col-md-2"><div class="thumbnail"><img src="images/bakedbrie.jpg" style="width:100%"><button class="btn btn-block" name="yo" style="display: inline-block; position: absolute; top: 0; left: 0; width: 100%; height: 100%; opacity: 0.5;"></button><div class="caption"><p id="dishName">hej</p></div></div></div> -->
+    
+        </div>
+        <div id="startersView">
+            
         </div>
       </div>
+    </div>
 </div>
+      
+<!-- ----- MENU HEADER ----- -->      
+   
+<div id="menuHeader">
+    <p>
+      <span class="mydinner">My Dinner: 3 people</span>   
+      <button class="btn btn-warning" style="float: right;" id="backToEditDinner">Go back and edit dinner</button>
+    </p>
+   <hr>
+</div>
+      
+<!-- ----- DINNER OVERVIEW ----- -->    
+      
+<div id="dinnerOverview">
+    <div class="col-sm-12">
+  <div class="col-md-2">
+    <div class="thumbnail">
+        <img src="images/bakedbrie.jpg" alt="Baked Brie" style="width:100%">
+        <div class="caption">
+          <p>Baked Brie</p>
+            <p id="dishprice">77.20 SEK</p>
+        </div>
+    </div>
+</div>
+        
+  <div class="col-md-2">
+    <div class="thumbnail">
+        <img src="images/icecream.jpg" alt="Ice Cream" style="width:100%">
+        <div class="caption">
+          <p>Ice Cream</p>
+             <p id="dishprice">180.60 SEK</p>
+        </div>
+    </div>
+  </div>
+        
+  <div class="col-md-2">
+    <div class="thumbnail">
+        <img src="images/meatballs.jpg" alt="Meatballs" style="width:100%">
+        <div class="caption">
+          <p>Meatballs</p>
+             <p id="dishprice">83.40 SEK</p>
+        </div>
+    </div>
+  </div> 
 
+      <div class="col-md-2 line">
+            <span>Total:<br></span>
+                <b style="color: red">341.20 SEK</b> 
+      </div>    
 </div>
+      
+     
+      
+      
+      <div class="col-sm-12">
+      <hr>
+      <button class="btn btn-warning center-block" id="printRecipes">Print Full Recipe</button>
+      </div> 
 </div>
+      
+<!-- ----- DINNER PRINTOUT ----- -->
 
+<div id="dinnerPrintout">
+      
+   <div class="col-sm-12">
+    
+       <div class="col-sm-2">
+       <img src="images/bakedbrie.jpg">
+       </div>
+       
+       <div class="col-sm-4">
+         <div class = "dishname-header">
+        <h3>BAKED BRIE</h3>
+        </div>
+           <p>Et licet quocumque oculos flexeris feminas adfatim multas spectare cirratas, quibus, si nupsissent, per aetatem ter iam nixus poterat suppetere liberorum, ad usque taedium pedibus pavimenta tergentes iactari volucriter gyris, dum exprimunt innumera simulacra, quae finxere fabulae theatrales.</p>
+       </div>
+       
+        <div class="col-sm-5">
+         <div class = "preparation-header">
+        <h3>PREPARATION</h3>
+        </div>
+           <p>Et licet quocumque oculos flexeris feminas adfatim multas spectare cirratas, quibus, si nupsissent, per aetatem ter iam nixus poterat suppetere liberorum, ad usque taedium pedibus pavimenta tergentes iactari volucriter gyris, dum exprimunt innumera simulacra, quae finxere fabulae theatrales.
+            
+            Et licet quocumque oculos flexeris feminas adfatim multas spectare cirratas, quibus, si nupsissent, per aetatem ter iam nixus poterat suppetere liberorum, ad usque taedium pedibus pavimenta tergentes iactari volucriter gyris, dum exprimunt innumera simulacra, quae finxere fabulae theatrales.</p>
+       </div> 
+      </div>
+      
+      <div class="col-sm-12">
+    
+       <div class="col-sm-2">
+       <img src="images/icecream.jpg">
+       </div>
+       
+       <div class="col-sm-4">
+         <div class = "dishname-header">
+        <h3>ICE CREAM</h3>
+        </div>
+           <p>Et licet quocumque oculos flexeris feminas adfatim multas spectare cirratas, quibus, si nupsissent, per aetatem ter iam nixus poterat suppetere liberorum, ad usque taedium pedibus pavimenta tergentes iactari volucriter gyris, dum exprimunt innumera simulacra, quae finxere fabulae theatrales.</p>
+       </div>
+       
+        <div class="col-sm-5">
+         <div class = "preparation-header">
+        <h3>PREPARATION</h3>
+        </div>
+           <p>Et licet quocumque oculos flexeris feminas adfatim multas spectare cirratas, quibus, si nupsissent, per aetatem ter iam nixus poterat suppetere liberorum, ad usque taedium pedibus pavimenta tergentes iactari volucriter gyris, dum exprimunt innumera simulacra, quae finxere fabulae theatrales.
+            
+            Et licet quocumque oculos flexeris feminas adfatim multas spectare cirratas, quibus, si nupsissent, per aetatem ter iam nixus poterat suppetere liberorum, ad usque taedium pedibus pavimenta tergentes iactari volucriter gyris, dum exprimunt innumera simulacra, quae finxere fabulae theatrales.</p>
+       </div> 
+      </div>
+      
+       <div class="col-sm-12">
+    
+       <div class="col-sm-2">
+       <img src="images/meatballs.jpg">
+       </div>
+       
+       <div class="col-sm-4">
+         <div class = "dishname-header">
+        <h3>MEATBALLS</h3>
+        </div>
+           <p>Et licet quocumque oculos flexeris feminas adfatim multas spectare cirratas, quibus, si nupsissent, per aetatem ter iam nixus poterat suppetere liberorum, ad usque taedium pedibus pavimenta tergentes iactari volucriter gyris, dum exprimunt innumera simulacra, quae finxere fabulae theatrales.</p>
+       </div>
+       
+        <div class="col-sm-5">
+         <div class = "preparation-header">
+        <h3>PREPARATION</h3>
+        </div>
+           <p>Et licet quocumque oculos flexeris feminas adfatim multas spectare cirratas, quibus, si nupsissent, per aetatem ter iam nixus poterat suppetere liberorum, ad usque taedium pedibus pavimenta tergentes iactari volucriter gyris, dum exprimunt innumera simulacra, quae finxere fabulae theatrales.
+            
+            Et licet quocumque oculos flexeris feminas adfatim multas spectare cirratas, quibus, si nupsissent, per aetatem ter iam nixus poterat suppetere liberorum, ad usque taedium pedibus pavimenta tergentes iactari volucriter gyris, dum exprimunt innumera simulacra, quae finxere fabulae theatrales.</p>
+       </div> 
+      </div>
+         
+</div>
       
 
     <!-- jQuery -->
@@ -170,13 +392,29 @@ input[type=number]{
 	<script src="js/model/dinnerModel.js"></script>
 	<script src="js/view/exampleView.js"></script>
     <script src="js/view/sidebarView.js"></script>
-    <script src="js/view/allDishesView.js"></script>
-    <script>function filterType() {
+    <script src="js/view/dishesView.js"></script>
+    <script src="js/view/ingredientsView.js"></script>
+    <script src="js/generalStateController.js"></script>
+<!--    <script>function filterType() {
       var typeName = document.getElementById("typeOfDish").value;
         var dessert = document.getElementsByName("dessert").value;
             if (typeName == "Starter") {
           $(dessert).hide();
       } }
+      </script> -->
+      <script>
+          $("#startersView").hide();
+          function myfunction() {
+              var x = document.getElementById("typeOfDish").value;
+              $("#allDishesView").hide();
+              $("#startersView").hide();
+              if (x == "starter") {    
+                  $("#startersView").show();
+              }
+              else if (x == "all") {
+                  $("#allDishesView").show();
+              }
+          }
       </script>
 	<!-- TODO: Here you should include JS code for your other views -->
   </body>
