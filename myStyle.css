@@ -1,0 +1,90 @@
+@media (min-width: 768px) {
+  .sidebar-nav .navbar .navbar-collapse {
+    padding: 0;
+    max-height: none;
+  }
+  .sidebar-nav .navbar ul {
+    float: none;
+  }
+  .sidebar-nav .navbar ul:not {
+    display: block;
+  }
+  .sidebar-nav .navbar li {
+    float: none;
+    display: block;
+  }
+}
+        
+input[type=number]::-webkit-inner-spin-button {
+    opacity: 1;
+}
+        
+input[type=number]{
+    width: 40px;
+} 
+
+.price_header {
+    background-color: darkgray;
+}        
+        
+.dishname {
+    text-align: left;
+    font-weight: bold;
+}
+        
+.cost {
+   
+    font-weight: bold;
+    float: right;
+}
+        
+.price {
+    text-align: right;
+    color: red;
+}   
+        
+#total_price {
+    text-align: right;
+}
+
+        hr {
+    border-color: black;
+}
+.mydinner{
+    font-size: 30px;
+}
+        
+#dishprice {
+    text-align: right;
+    color: red;
+    font-weight: bold;
+}
+        
+.line {
+    border-left: 1px solid black;
+}
+        
+#backToEditDinner {
+    float: right;
+}   
+        
+#imgDishDetail {
+    width: 100%;
+}
+        
+#imgDinnerOverview {
+    width: 100%;
+}
+         
+#dishname {
+     background-color: darkgray;
+}
+        
+#costBanner {
+    background-color: darkgray;
+}
+        
+#totalPrice {
+    color: red;
+    font-weight: bold;
+}

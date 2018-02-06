@@ -8,80 +8,11 @@
 
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="http://netdna.bootstrapcdn.com/bootstrap/3.1.0/css/bootstrap.min.css">
-
-    <style>        
-@media (min-width: 768px) {
-  .sidebar-nav .navbar .navbar-collapse {
-    padding: 0;
-    max-height: none;
-  }
-  .sidebar-nav .navbar ul {
-    float: none;
-  }
-  .sidebar-nav .navbar ul:not {
-    display: block;
-  }
-  .sidebar-nav .navbar li {
-    float: none;
-    display: block;
-  }
-}
-        
-input[type=number]::-webkit-inner-spin-button {
-    opacity: 1;
-}
-        
-input[type=number]{
-    width: 40px;
-} 
-
-.price_header {
-    background-color: darkgray;
-}        
-        
-.dishname {
-    text-align: left;
-    font-weight: bold;
-}
-        
-.cost {
-   
-    font-weight: bold;
-    float: right;
-}
-        
-.price {
-    text-align: right;
-    color: red;
-}   
-        
-#total_price {
-    text-align: right;
-}
-
-        hr {
-    border-color: black;
-}
-.mydinner{
-    font-size: 30px;
-}
-        
-#dishprice {
-            text-align: right;
-            color: red;
-            font-weight: bold;
-}
-        
-.line {
-    border-left: 1px solid black;
-}
-    </style>
+    <link rel="stylesheet" type="text/css" href="mystyle.css">
       
   </head>
   <body>
-      
- 
-        
+         
     <div class="jumbotron">
         <h1 class="text-center">Dinner planner</h1>
     </div> 
@@ -114,10 +45,10 @@ input[type=number]{
         <label>Number of guests:</label>
         <input id="guests" type="number" value="3" min="0"/>
     </p></li>
-            <li><div class="col-xs-8" id="dishname" style="background-color: darkgray">
+            <li><div class="col-xs-8" id="dishname">
         <span class="dishname">Dish name</span>
             </div>
-        <div class="col-xs-4" style="background-color: darkgray">
+        <div class="col-xs-4" id="costBanner">
         <span class="cost">Cost</span>
             </div></li>
             <li><div id="total_price" class="col-sm-12">
@@ -144,7 +75,7 @@ input[type=number]{
         <h3>BAKED BRIE</h3>
         </div>
         
-        <img src="images/bakedbrie.jpg" width="80%">
+        <img src="images/bakedbrie.jpg" id="imgDishDetail">
          <div class="caption">
           <p>Et licet quocumque oculos flexeris feminas adfatim multas spectare cirratas, quibus, si nupsissent, per aetatem ter iam nixus poterat suppetere liberorum, ad usque taedium pedibus pavimenta tergentes iactari volucriter gyris, dum exprimunt innumera simulacra, quae finxere fabulae theatrales.</p>
         </div>
@@ -218,7 +149,6 @@ input[type=number]{
             <option value="starter">starter</option>
           <option value="main dish">main dish</option>
           <option value="dessert">dessert</option>
-          <option value="appetizer">appetizer</option>
         </select>
          
          <button class="btn btn-warning">search</button>
@@ -252,7 +182,7 @@ input[type=number]{
 <div id="menuHeader">
     <p>
       <span class="mydinner">My Dinner: 3 people</span>   
-      <button class="btn btn-warning" style="float: right;" id="backToEditDinner">Go back and edit dinner</button>
+      <button class="btn btn-warning" id="backToEditDinner">Go back and edit dinner</button>
     </p>
    <hr>
 </div>
@@ -263,7 +193,7 @@ input[type=number]{
     <div class="col-sm-12">
   <div class="col-md-2">
     <div class="thumbnail">
-        <img src="images/bakedbrie.jpg" alt="Baked Brie" style="width:100%">
+        <img src="images/bakedbrie.jpg" alt="Baked Brie" id="imgDinnerOverview">
         <div class="caption">
           <p>Baked Brie</p>
             <p id="dishprice">77.20 SEK</p>
@@ -273,7 +203,7 @@ input[type=number]{
         
   <div class="col-md-2">
     <div class="thumbnail">
-        <img src="images/icecream.jpg" alt="Ice Cream" style="width:100%">
+        <img src="images/icecream.jpg" alt="Ice Cream" id="imgDinnerOverview">
         <div class="caption">
           <p>Ice Cream</p>
              <p id="dishprice">180.60 SEK</p>
@@ -283,7 +213,7 @@ input[type=number]{
         
   <div class="col-md-2">
     <div class="thumbnail">
-        <img src="images/meatballs.jpg" alt="Meatballs" style="width:100%">
+        <img src="images/meatballs.jpg" alt="Meatballs" id="imgDinnerOverview">
         <div class="caption">
           <p>Meatballs</p>
              <p id="dishprice">83.40 SEK</p>
@@ -293,7 +223,7 @@ input[type=number]{
 
       <div class="col-md-2 line">
             <span>Total:<br></span>
-                <b style="color: red">341.20 SEK</b> 
+                <span id="totalPrice">341.20 SEK</span> 
       </div>    
 </div>
       
