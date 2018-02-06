@@ -14,7 +14,7 @@
     display: block;
   }
 }
-        
+     
 input[type=number]::-webkit-inner-spin-button {
     opacity: 1;
 }
@@ -91,4 +91,8 @@ input[type=number]{
 #totalPrice {
     color: red;
     font-weight: bold;
+}
+
+.dishname-header {
+    text-transform: uppercase;
 }

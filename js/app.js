@@ -20,6 +20,8 @@ $(function() {
     
     var dessertsView = new DessertsView($("#dessertsView"), model);
     
+    var dishDetailView = new DishDetailView($("#dishDetailView"), model);
+    
     var generalStateController = new GeneralStateController();
 
 	/**
@@ -47,7 +49,7 @@ $(function() {
     });
 
 
-    $("#allDishesView").click(function(){
+    $('[name="dish"]').click(function(){
            generalStateController.showDishDetail();
         });
 
