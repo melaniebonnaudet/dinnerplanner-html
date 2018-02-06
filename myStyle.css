@@ -41,7 +41,11 @@ input[type=number]{
 .price {
     text-align: right;
     color: red;
-}   
+}
+
+.dishprice {
+    float: right;
+}
         
 #total_price {
     text-align: right;
