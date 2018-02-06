@@ -173,6 +173,15 @@
         <div id="startersView">
             
         </div>
+        
+        <div id="mainDishView">
+            
+        </div>
+        
+        <div id="dessertsView">
+            
+        </div>
+        
       </div>
     </div>
 </div>
@@ -181,7 +190,7 @@
    
 <div id="menuHeader">
     <p>
-      <span class="mydinner">My Dinner: 3 people</span>   
+      <span class="mydinner">My Dinner: <span id="numberOfGuests">3</span> people</span>   
       <button class="btn btn-warning" id="backToEditDinner">Go back and edit dinner</button>
     </p>
    <hr>
@@ -324,28 +333,9 @@
     <script src="js/view/sidebarView.js"></script>
     <script src="js/view/dishesView.js"></script>
     <script src="js/view/ingredientsView.js"></script>
+    <script src="js/view/menuHeaderView.js"></script>
     <script src="js/generalStateController.js"></script>
-<!--    <script>function filterType() {
-      var typeName = document.getElementById("typeOfDish").value;
-        var dessert = document.getElementsByName("dessert").value;
-            if (typeName == "Starter") {
-          $(dessert).hide();
-      } }
-      </script> -->
-      <script>
-          $("#startersView").hide();
-          function myfunction() {
-              var x = document.getElementById("typeOfDish").value;
-              $("#allDishesView").hide();
-              $("#startersView").hide();
-              if (x == "starter") {    
-                  $("#startersView").show();
-              }
-              else if (x == "all") {
-                  $("#allDishesView").show();
-              }
-          }
-      </script>
+
 	<!-- TODO: Here you should include JS code for your other views -->
   </body>
 </html>

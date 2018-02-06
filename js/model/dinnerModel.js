@@ -4,16 +4,16 @@ var DinnerModel = function() {
 	//TODO Lab 1 implement the data structure that will hold number of guest
 	// and selected dishes for the dinner menu
 
-
-
     var numberOfGuests = 5;
 
     var menuDishes = [1, 101, 202];
     var menuIngredients = [];
-    var dishNames = [];
+    
+    //var observers = [];
     
 	this.setNumberOfGuests = function(num) {
 		numberOfGuests = num;
+        //this.notifyObservers(numberOfGuests);
 	}
 	
 	this.getNumberOfGuests = function() {
@@ -139,13 +139,15 @@ var DinnerModel = function() {
         return dishes;
     }
     
-    this.addObserver = function(observer) {
-        //code here
+    /*this.addObserver = function(observer) {
+        observers.push(observer);
     }
     
-    var notifyObservers = function(obj) {
-        //code here
-    }
+    this.notifyObservers = function(obj) {
+        for (var i=0; i<observers.length; i++) {
+             observers[i](this, obj);
+            }
+    }*/
     
     
 

@@ -12,6 +12,8 @@ var GeneralStateController = function() {
         $("#sidebar").show();
         $("#home").hide();
         $("#startersView").hide();
+        $("#mainDishView").hide();
+        $("#dessertsView").hide();
         $("#dinnerOverview").hide();
         $("#menuHeader").hide();
         $("#dinnerPrintout").hide();
