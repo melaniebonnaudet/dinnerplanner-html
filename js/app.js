@@ -23,6 +23,8 @@ $(function() {
     var dishDetailView = new DishDetailView($("#dishDetailView"), model);
     
     var generalStateController = new GeneralStateController();
+    
+    var sidebarViewController = new SidebarViewController($("#sidebar"), model);
 
 	/**
 	 * IMPORTANT: app.js is the only place where you are allowed to
@@ -32,7 +34,7 @@ $(function() {
 	 */
     
     $("#createNewDinner").click(function(){
-          generalStateController.showAllDishesView();
+        generalStateController.showAllDishesView();
         });
 
     $("#confirmDinner").click(function(){
@@ -48,10 +50,14 @@ $(function() {
         generalStateController.showDinnerPrintout();
     });
 
-
+//var i;
+//for (i=0; i<9; i++) {
     $('[name="dish"]').click(function(){
-           generalStateController.showDishDetail();
+        generalStateController.showDishDetail();
+        //console.log("a"+i+"");
+        //console.log($("#a"+i+"").text());
         });
+    //}
 
     $("#backToAllDishesView").click(function(){
            generalStateController.showAllDishesView();
