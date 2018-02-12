@@ -13,8 +13,8 @@ var DinnerModel = function() {
     
 	this.setNumberOfGuests = function(num) {
 		numberOfGuests = num;
-        //this.notifyObservers(numberOfGuests);
-        console.log(numberOfGuests);
+        this.notifyObservers(numberOfGuests);
+        //console.log(numberOfGuests);
 	}
 	
 	this.getNumberOfGuests = function() {
@@ -146,7 +146,7 @@ var DinnerModel = function() {
     
     this.notifyObservers = function(obj) {
         for (var i=0; i<observers.length; i++) {
-             observers[i](this, obj);
+             observers.notifyObservers(this, obj);
             }
     }
     
