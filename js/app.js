@@ -24,7 +24,7 @@ $(function() {
     
     var generalStateController = new GeneralStateController();
     
-    var sidebarViewController = new SidebarViewController($("#sidebar"), model);
+    var sidebarViewController = new SidebarViewController(sidebarView, model);
 
 	/**
 	 * IMPORTANT: app.js is the only place where you are allowed to

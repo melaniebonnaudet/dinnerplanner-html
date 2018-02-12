@@ -4,6 +4,13 @@ var MenuHeaderView = function(container, model) {
     
     //container.find("#numberOfGuests").html(me.update(model.getNumberOfGuests()));
     
-    container.find("#numberOfGuests").html(model.getNumberOfGuests());
+    this.numGuestContainer = container.find("#numberOfGuests");
     
+    this.update = function() {
+        this.numGuestContainer.html(model.getNumberOfGuests());
+        
+    }
+    
+    this.update();
+    model.addObserver(this);
 }

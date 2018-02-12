@@ -29,7 +29,13 @@ container.find("#numberOfGuests").html(model.getNumberOfGuests());
         $("#price").append(price);
     }
     
-        
     
-
+   /* $("#btn_addtomenu").click(function(){
+        
+     for (i in allDishes[0].ingredients) {
+        price = 0;
+      console.log(price += allDishes[0].ingredients[i].price);
+          }
+        }); */
+        
 }

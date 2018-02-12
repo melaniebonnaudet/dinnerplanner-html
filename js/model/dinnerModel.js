@@ -9,11 +9,11 @@ var DinnerModel = function() {
     var menuDishes = [1, 101, 202];
     var menuIngredients = [];
     
-    //var observers = [];
+    var observers = [];
     
 	this.setNumberOfGuests = function(num) {
 		numberOfGuests = num;
-        this.notifyObservers(numberOfGuests);
+        notifyObservers();
         //console.log(numberOfGuests);
 	}
 	
@@ -144,10 +144,11 @@ var DinnerModel = function() {
         observers.push(observer);
     }
     
-    this.notifyObservers = function(obj) {
+    var notifyObservers = function() {
         for (var i=0; i<observers.length; i++) {
-             observers.notifyObservers(this, obj);
-            }
+            console.log(observers);
+             observers[i].update();
+        }
     }
     
     
