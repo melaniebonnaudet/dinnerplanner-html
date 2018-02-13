@@ -7,8 +7,7 @@ var MenuHeaderView = function(container, model) {
     this.numGuestContainer = container.find("#numberOfGuests");
     
     this.update = function() {
-        this.numGuestContainer.html(model.getNumberOfGuests());
-        
+        this.numGuestContainer.html(model.getNumberOfGuests());      
     }
     
     this.update();

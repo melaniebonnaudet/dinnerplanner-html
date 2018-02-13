@@ -1,14 +1,13 @@
 var IngredientsView = function(container, model) { 
     
-container.find("#numberOfGuests").html(model.getNumberOfGuests());
-    
+this.numGuestContainer = container.find("#numberOfGuests");
+
     //var amount;
     //var ingredient;
     var allDishes = model.getDishes();
     var i;
-    var guests;
     
-    guests = model.getNumberOfGuests();
+     var guests = model.getNumberOfGuests();
  
     //$("#btn_addtomenu").click(function(){
       // console.log(allDishes[0].ingredients[0].quantity);
@@ -29,6 +28,12 @@ container.find("#numberOfGuests").html(model.getNumberOfGuests());
         $("#price").append(price);
     }
     
+    this.update = function() {
+        this.numGuestContainer.html(model.getNumberOfGuests());      
+    }
+    
+    this.update();
+    model.addObserver(this);
     
    /* $("#btn_addtomenu").click(function(){
         

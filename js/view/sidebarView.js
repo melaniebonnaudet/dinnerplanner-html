@@ -1,56 +1,72 @@
 var SidebarView = function(container, model) { 
-
- this.guestvalue = container.find("#guests");
+    
+this.guestvalue = container.find("#guests");
      
- this.guestvalue.attr("value", model.getNumberOfGuests());
+ //this.guestvalue.attr("value", model.getNumberOfGuests());
     
 var starterID;
 var starterName;
 var starter;
     
-starterID = model.getSelectedDish("starter");
-    
-starterName = model.getDish(starterID).name;
-    
-starter = $("<div class='col-xs-8'></div>").text(starterName);
-$("#starterInSidebar").append(starter);
-    
 var mainDishID;
 var mainDishName;
 var mainDish;
-    
-mainDishID = model.getSelectedDish("main dish");
-    
-mainDishName = model.getDish(mainDishID).name;
-    
-mainDish = $("<div class='col-xs-8'></div>").text(mainDishName);
-$("#mainDishInSidebar").append(mainDish);
-    
     
 var dessertID;
 var dessertName;
 var dessert;
     
-dessertID = model.getSelectedDish("dessert");
+starterID = model.getSelectedDish("starter"); 
+starterName = model.getDish(starterID).name;
     
+starter = $("<div class='col-xs-8'></div>").text(starterName);
+$("#starterInSidebar").append(starter);
+    
+mainDishID = model.getSelectedDish("main dish");  
+mainDishName = model.getDish(mainDishID).name;
+    
+mainDish = $("<div class='col-xs-8'></div>").text(mainDishName);
+$("#mainDishInSidebar").append(mainDish);
+       
+dessertID = model.getSelectedDish("dessert");  
 dessertName = model.getDish(dessertID).name;
     
 dessert = $("<div class='col-xs-8'></div>").text(dessertName);
 $("#dessertInSidebar").append(dessert);
 
-console.log(model.getTotalMenuPrice());
-console.log(model.getNumberOfGuests());
-menuPrice = $("<p class='price'></p>").text("SEK " + model.getTotalMenuPrice());
-$("#total_price").append(menuPrice);
+model.getAllIngredients();
+this.menuPrice = $("<p class='price'></p>");
+$("#total_price").append(this.menuPrice);
     
+ 
+var guests = model.getNumberOfGuests();
+var i;
+
+var starterPrice = 0;
+var maindishPrice = 0;
+var dessertPrice = 0;
     
+    for (i in model.getDish(starterID).ingredients) {
+        price = $("<div class='col-xs-4'></div>").text("SEK " + ((starterPrice += model.getDish(starterID).ingredients[i].price)*guests));
+    }
+     $("#starterInSidebar").append(price);
     
+     for (i in model.getDish(mainDishID).ingredients) {
+        price = $("<div class='col-xs-4'></div>").text("SEK " + ((maindishPrice += model.getDish(mainDishID).ingredients[i].price)*guests));
+    }
+     $("#mainDishInSidebar").append(price);
     
-/*this.update = function() {
-        this.numGuestContainer.html(model.getNumberOfGuests());
-        
+     for (i in model.getDish(dessertID).ingredients) {
+        price = $("<div class='col-xs-4'></div>").text("SEK " + ((dessertPrice += model.getDish(dessertID).ingredients[i].price)*guests));
+    }
+     $("#dessertInSidebar").append(price);
+    
+this.update = function() {
+    this.guestvalue.attr("value", guests);
+    this.menuPrice.text("SEK " + model.getTotalMenuPrice());
+    
     }
     
     this.update();
-    model.addObserver(this);*/
+    model.addObserver(this);
 }
