@@ -1,8 +1,8 @@
 var SidebarView = function(container, model) { 
     
-this.guestvalue = container.find("#guests");
+this.guestinput = container.find("#guests");
      
- //this.guestvalue.attr("value", model.getNumberOfGuests());
+ //this.guestinput.attr("value", model.getNumberOfGuests());
     
 var starterID;
 var starterName;
@@ -37,42 +37,16 @@ $("#dessertInSidebar").append(dessert);
 model.getAllIngredients();
 this.menuPrice = $("<p class='price'></p>");
 $("#total_price").append(this.menuPrice);
-    
  
-/*var guests = model.getNumberOfGuests();
-var i;
-
-var starterPrice = 0;
-var maindishPrice = 0;
-var dessertPrice = 0;
-    
-    for (i in model.getDish(starterID).ingredients) {
-        price = $("<div class='col-xs-4'></div>").text("SEK " + ((starterPrice +=                        model.getDish(starterID).ingredients[i].price)*guests));
-    }
-     $("#starterInSidebar").append(price);
-    
-     for (i in model.getDish(mainDishID).ingredients) {
-        price = $("<div class='col-xs-4'></div>").text("SEK " + ((maindishPrice += model.getDish(mainDishID).ingredients[i].price)*guests));
-    }
-     $("#mainDishInSidebar").append(price);
-    
-     for (i in model.getDish(dessertID).ingredients) {
-        price = $("<div class='col-xs-4'></div>").text("SEK " + ((dessertPrice += model.getDish(dessertID).ingredients[i].price)*guests));
-    }
-     $("#dessertInSidebar").append(price);*/
-    
-
-    
- 
-    starterPriceElement = $("<div class='col-xs-4'></div>");
-    maindishPriceElement = $("<div class='col-xs-4'></div>");
-    dessertPriceElement = $("<div class='col-xs-4'></div>");
-    $("#starterInSidebar").append(starterPriceElement);   
-    $("#mainDishInSidebar").append(maindishPriceElement);
-    $("#dessertInSidebar").append(dessertPriceElement);
+starterPriceElement = $("<div class='col-xs-4'></div>");
+maindishPriceElement = $("<div class='col-xs-4'></div>");
+dessertPriceElement = $("<div class='col-xs-4'></div>");
+$("#starterInSidebar").append(starterPriceElement);   
+$("#mainDishInSidebar").append(maindishPriceElement);
+$("#dessertInSidebar").append(dessertPriceElement);
     
 this.update = function() {
-    this.guestvalue.attr("value", guests);
+    this.guestinput.attr("value", guests);
     this.menuPrice.text("SEK " + model.getTotalMenuPrice());
     
     
@@ -84,8 +58,6 @@ this.update = function() {
     
     for (i in model.getDish(starterID).ingredients) {
         starterPrice += model.getDish(starterID).ingredients[i].price*guests;
-        //maindishPrice += model.getDish(mainDishID).ingredients[i].prsice*guests;
-        //dessertPrice += model.getDish(dessertID).ingredients[i].price*guests;
     }
     
      for (i in model.getDish(mainDishID).ingredients) {
@@ -104,6 +76,5 @@ this.update = function() {
     
     this.update();
     model.addObserver(this);
-    
-   
+      
 }

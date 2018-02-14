@@ -27,6 +27,8 @@ $(function() {
     var sidebarViewController = new SidebarViewController(sidebarView, model);
     
     //var sidebarViewController = new SidebarViewController($("#sidebar"), model);
+    
+    var dinnerOverviewView = new DinnerOverviewView($("#dinnerOverviewView"), model);
 
 	/**
 	 * IMPORTANT: app.js is the only place where you are allowed to

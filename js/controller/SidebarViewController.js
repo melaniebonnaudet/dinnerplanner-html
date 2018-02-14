@@ -1,14 +1,16 @@
 var SidebarViewController = function(view, model) {
     
-   /* var value = view.guestvalue.val();
+   /*var guestvalue = view.guestinput.val();
+    
+    console.log(view.guestinput);
     
     var listener= function() {
-        if (value != "") {
-        model.setNumberOfGuests(value);
-            }
+        //if (guestvalue != "") {
+        model.setNumberOfGuests(guestvalue);
+            //}
     }
     
-     value.addEventListener("input", listener);*/
+     guestvalue.bind("input", listener);*/
     var listener= function() {
         if (document.getElementById("guests").value != "") {
         model.setNumberOfGuests(document.getElementById("guests").value);
