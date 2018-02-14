@@ -123,7 +123,10 @@ var DinnerModel = function() {
 				found = true;
 			}
 		}
-            return dish.type == type && found;
+        if (type) {
+              return dish.type == type && found;          
+        }
+            return true;
         });	
 	}
     
@@ -147,7 +150,7 @@ var DinnerModel = function() {
     
     var notifyObservers = function() {
         for (var i=0; i<observers.length; i++) {
-            console.log(observers);
+            //console.log(observers);
              observers[i].update();
         }
     }

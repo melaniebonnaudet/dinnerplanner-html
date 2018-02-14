@@ -22,14 +22,16 @@ $(function() {
     
     var dishDetailView = new DishDetailView($("#dishDetailView"), model);
     
+    var dinnerOverviewView = new DinnerOverviewView($("#dinnerOverviewView"), model);
+    
     var generalStateController = new GeneralStateController();
     
     var sidebarViewController = new SidebarViewController(sidebarView, model);
-    
+       
     //var sidebarViewController = new SidebarViewController($("#sidebar"), model);
     
-    var dinnerOverviewView = new DinnerOverviewView($("#dinnerOverviewView"), model);
-
+    //var dishesViewController = new DishesViewController(allDishesView, model);
+    
 	/**
 	 * IMPORTANT: app.js is the only place where you are allowed to
 	 * use the $('someSelector') to search for elements in the whole HTML.
@@ -54,14 +56,12 @@ $(function() {
         generalStateController.showDinnerPrintout();
     });
 
-//var i;
-//for (i=0; i<9; i++) {
-    $('[name="dish"]').click(function(){
+
+    $('.dishButton').click(function(evt){
         generalStateController.showDishDetail();
-        //console.log("a"+i+"");
-        //console.log($("#a"+i+"").text());
+        console.log(evt.target.getAttribute("value"));
         });
-    //}
+    
 
     $("#backToAllDishesView").click(function(){
            generalStateController.showAllDishesView();
