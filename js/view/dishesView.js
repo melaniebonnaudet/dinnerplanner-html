@@ -4,7 +4,7 @@ var AllDishesView = function (container, model) {
         var dishes;
         var allDishes = model.getDishes();
     
-        this.specificDish = container.find(".dishButton");
+        //this.specificDish = container.find(".dishButton");
 
         for (key in allDishes) {
             dishes = '<div class="col-md-3 dishButton" name="dish" id="'+ allDishes[key].id +'" value="'+ allDishes[key].id +'"><div class="thumbnail"><img value="'+ allDishes[key].id +'" src="images/' + allDishes[key].image + '" style="width:100%"><div class="caption"><p id="dishName">' + allDishes[key].name + '</p></div></div></div>';       

@@ -1,9 +1,18 @@
 var DishesViewController = function (view, controller) {
      
-    $('.dishButton').click(function(evt) {
-        generalStateController.showDishDetail();
-        var dishID = evt.target.getAttribute("value");
-        console.log(dishID);
-        
-        });
+    var generalStateController = new GeneralStateController();
+    
+     var listener = function() {
+            var dishID = $(this).attr("id");
+            console.log(dishID);
+            controller.setDishID(dishID);
+            generalStateController.showDishDetail();
+        }
+    
+    this.update = function() {
+        $(document).on('click', '#allDishesView .dishButton', listener);
+    }
+
+    this.update();
+    controller.addObserver(this);
 }

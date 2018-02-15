@@ -32,7 +32,7 @@ $(function() {
        
     //var sidebarViewController = new SidebarViewController($("#sidebar"), model);
     
-    //var dishesViewController = new DishesViewController(allDishesView, model);
+    var dishesViewController = new DishesViewController(allDishesView, model);
     
 	/**
 	 * IMPORTANT: app.js is the only place where you are allowed to
@@ -61,7 +61,7 @@ $(function() {
 
     $('.dishButton').click(function(evt){
         generalStateController.showDishDetail();
-        console.log(evt.target.getAttribute("value"));
+        //console.log(evt.target.getAttribute("value"));
         });
     
 
