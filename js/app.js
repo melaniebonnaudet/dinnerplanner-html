@@ -24,6 +24,8 @@ $(function() {
     
     var dinnerOverviewView = new DinnerOverviewView($("#dinnerOverviewView"), model);
     
+    var dinnerPrintoutView = new DinnerPrintoutView($("#dinnerPrintout"), model);
+    
     var generalStateController = new GeneralStateController();
     
     var sidebarViewController = new SidebarViewController(sidebarView, model);
