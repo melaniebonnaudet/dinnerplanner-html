@@ -41,38 +41,35 @@ var DinnerOverviewView = function(container, model) {
     
     this.update = function() {
         
-    var i;
-    var starterPrice = 0;
-    var maindishPrice = 0;
-    var dessertPrice = 0;
-   
-    var guests = model.getNumberOfGuests();
-   
-        
-    for (i in model.getDish(starterID).ingredients) {
-        starterPrice += model.getDish(starterID).ingredients[i].price*guests;
-    }
- 
-    for (i in model.getDish(maindishID).ingredients) {
-        maindishPrice += model.getDish(maindishID).ingredients[i].price*guests;
-    }
-     
-    for (i in model.getDish(dessertID).ingredients) {
-        dessertPrice += model.getDish(dessertID).ingredients[i].price*guests;
-    }
-     
-    $("#totalPrice").text("SEK " + model.getTotalMenuPrice());
-        
-    $("#starterPrice").text("SEK " + starterPrice);
-    $("#maindishPrice").text("SEK " + maindishPrice);
-    $("#dessertPrice").text("SEK " + dessertPrice);
+        var i;
+        var starterPrice = 0;
+        var maindishPrice = 0;
+        var dessertPrice = 0;
+
+        var guests = model.getNumberOfGuests();
+
+
+        for (i in model.getDish(starterID).ingredients) {
+            starterPrice += model.getDish(starterID).ingredients[i].price*guests;
+        }
+
+        for (i in model.getDish(maindishID).ingredients) {
+            maindishPrice += model.getDish(maindishID).ingredients[i].price*guests;
+        }
+
+        for (i in model.getDish(dessertID).ingredients) {
+            dessertPrice += model.getDish(dessertID).ingredients[i].price*guests;
+        }
+
+        $("#totalPrice").text("SEK " + model.getTotalMenuPrice());
+
+        $("#starterPrice").text("SEK " + starterPrice);
+        $("#maindishPrice").text("SEK " + maindishPrice);
+        $("#dessertPrice").text("SEK " + dessertPrice);
     
-    
-  
     }
     
     this.update();
     model.addObserver(this);
     
-   
 }

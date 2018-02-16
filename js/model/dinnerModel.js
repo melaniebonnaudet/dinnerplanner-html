@@ -8,13 +8,14 @@ var DinnerModel = function() {
 
     var menuDishes = [3,100,202];
     var menuIngredients = [];
-    var dishID = 0;
+    var dishID = 1;
     
     var observers = [];
     
     this.setDishID = function(id) {
         dishID = id;
         notifyObservers();
+        //console.log(dishID);
     }
     
     this.getDishID = function() {

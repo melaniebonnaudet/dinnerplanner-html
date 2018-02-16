@@ -2,34 +2,52 @@ var IngredientsView = function(container, model) {
     
 this.numGuestContainer = container.find("#numberOfGuests");
 
-    //var amount;
+   
     //var ingredient;
-    var allDishes = model.getDishes();
+    //var allDishes = model.getDishes();
     var i;
     
-     var guests = model.getNumberOfGuests();
+    var guests = model.getNumberOfGuests();
+    var dish = model.getDish(model.getDishID());
+    
+    //console.log(dish);
  
-    //$("#btn_addtomenu").click(function(){
-      // console.log(allDishes[0].ingredients[0].quantity);
-        //});   
-
+    $("#btn_addtomenu").click(function(){
+      console.log(dish.ingredients[2].quantity);
+        });   
+    
+    /*var amount = [];
+    var amountElement = $("<p></p>");
+    
+    $("#amount").append(amount);
+    
     for (i in allDishes[0].ingredients) { 
-        amount = $("<p></p>").text(allDishes[0].ingredients[i].quantity * guests + ' ' + allDishes[0].ingredients[i].unit);
+        amount.push((allDishes[0].ingredients[i].quantity * guests) + ' ' + allDishes[0].ingredients[i].unit);
+        //$("#amount").append(amount);
+    }
+    amountElement.text(amount);*/
+    
+
+    for (i in dish.ingredients) { 
+        //amount = $("<p></p>").text(dish.ingredients[i].quantity * guests + ' ' + dish.ingredients[i].unit);
+        amount = $("<p></p>").text(dish.ingredients[i].quantity);
         $("#amount").append(amount);
     }
     
-    for (i in allDishes[0].ingredients) {
-        ingredient = $("<p></p>").text(allDishes[0].ingredients[i].name);
+    for (i in dish.ingredients) {
+        ingredient = $("<p></p>").text(dish.ingredients[i].name);
         $("#ingredients").append(ingredient);
     }
     
-     for (i in allDishes[0].ingredients) {
-        price = $("<p></p>").text('SEK ' + allDishes[0].ingredients[i].price * guests);
+     for (i in dish.ingredients) {
+        price = $("<p></p>").text('SEK ' + dish.ingredients[i].price * guests);
         $("#price").append(price);
     }
     
     this.update = function() {
-        this.numGuestContainer.html(model.getNumberOfGuests());      
+        this.numGuestContainer.html(model.getNumberOfGuests());
+        var dish = model.getDish(model.getDishID());
+        console.log(dish);
     }
     
     this.update();
