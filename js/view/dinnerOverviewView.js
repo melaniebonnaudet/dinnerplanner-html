@@ -1,5 +1,6 @@
 var DinnerOverviewView = function(container, model) {
-     
+
+this.update = function() {
     var starterID;
     var starterName;
     var starterImg;
@@ -29,17 +30,18 @@ var DinnerOverviewView = function(container, model) {
     
      menuStarterElement =  '<div class="thumbnail"><img src="images/' + starterImg + '" id="imgDinnerOverview"><div class="caption"><p>' + starterName + '</p><p id="starterPrice"></p></div></div>'
     
+    $("#OverviewStarter").empty();
     $("#OverviewStarter").append(menuStarterElement);
     
      menuMaindishElement =  '<div class="thumbnail"><img src="images/' + maindishImg + '" id="imgDinnerOverview"><div class="caption"><p>' + maindishName + '</p><p id="maindishPrice"></p></div></div>'
     
+    $("#OverviewMaindish").empty();
     $("#OverviewMaindish").append(menuMaindishElement);
     
      menuDessertElement =  '<div class="thumbnail"><img src="images/' + dessertImg + '" id="imgDinnerOverview"><div class="caption"><p>' + dessertName + '</p><p id="dessertPrice"></p></div></div>'
     
+    $("#OverviewDessert").empty();
     $("#OverviewDessert").append(menuDessertElement);
-    
-    this.update = function() {
         
         var i;
         var starterPrice = 0;
@@ -47,7 +49,6 @@ var DinnerOverviewView = function(container, model) {
         var dessertPrice = 0;
 
         var guests = model.getNumberOfGuests();
-
 
         for (i in model.getDish(starterID).ingredients) {
             starterPrice += model.getDish(starterID).ingredients[i].price*guests;

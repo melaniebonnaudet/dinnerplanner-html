@@ -1,11 +1,13 @@
 var DinnerPrintoutView = function(container, model) {
-    
+
+this.update = function() {    
     var allDishes = model.getDishes();
     var starterID = model.getSelectedDish("starter"); 
     var starterPrintout;
       
     starterPrintout = '<div class="col-sm-12"><div class="col-sm-2"><img src="images/' + model.getDish(starterID).image + '"></div><div class="col-sm-4"><div class = "dishname-header"><h3>' + model.getDish(starterID).name + '</h3></div><p>' + model.getDish(starterID).description + '</p></div><div class="col-sm-5"><div class = "preparation-header"><h3>PREPARATION</h3></div><p>' + model.getDish(starterID).description + '</p></div></div>'
                                                               
+    container.empty();
     container.append(starterPrintout);
     
     var maindishID = model.getSelectedDish("main dish"); 
@@ -22,4 +24,8 @@ var DinnerPrintoutView = function(container, model) {
                                                               
     container.append(dessertPrintout);
     
+     }
+    
+    this.update();
+    model.addObserver(this);
 }

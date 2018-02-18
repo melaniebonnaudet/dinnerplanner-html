@@ -3,7 +3,7 @@ var SidebarView = function(container, model) {
 this.guestinput = container.find("#guests");
      
  //this.guestinput.attr("value", model.getNumberOfGuests());
-    
+this.update = function() {  
 var starterID;
 var starterName;
 var starter;
@@ -20,22 +20,26 @@ starterID = model.getSelectedDish("starter");
 starterName = model.getDish(starterID).name;
     
 starter = $("<div class='col-xs-8'></div>").text(starterName);
+$("#starterInSidebar").empty();
 $("#starterInSidebar").append(starter);
     
 mainDishID = model.getSelectedDish("main dish");  
 mainDishName = model.getDish(mainDishID).name;
     
 mainDish = $("<div class='col-xs-8'></div>").text(mainDishName);
-$("#mainDishInSidebar").append(mainDish);
+$("#mainDishInSidebar").empty();
+    $("#mainDishInSidebar").append(mainDish);
        
 dessertID = model.getSelectedDish("dessert");  
 dessertName = model.getDish(dessertID).name;
     
 dessert = $("<div class='col-xs-8'></div>").text(dessertName);
+$("#dessertInSidebar").empty();
 $("#dessertInSidebar").append(dessert);
 
 model.getAllIngredients();
 this.menuPrice = $("<p class='price'></p>");
+$("#total_price").empty();
 $("#total_price").append(this.menuPrice);
  
 starterPriceElement = $("<div class='col-xs-4'></div>");
@@ -45,10 +49,9 @@ $("#starterInSidebar").append(starterPriceElement);
 $("#mainDishInSidebar").append(maindishPriceElement);
 $("#dessertInSidebar").append(dessertPriceElement);
     
-this.update = function() {
+//this.update = function() {
     this.guestinput.attr("value", guests);
-    this.menuPrice.text("SEK " + model.getTotalMenuPrice());
-    
+    this.menuPrice.text("SEK " + model.getTotalMenuPrice());  
     
     var guests = model.getNumberOfGuests();
     var i;

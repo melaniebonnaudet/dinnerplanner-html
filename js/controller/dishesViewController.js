@@ -8,6 +8,9 @@ var DishesViewController = function (view, controller, generalStateController) {
             var dishID = evt.target.getAttribute("value");
             console.log(dishID);
             controller.setDishID(dishID);
+            controller.addDishToMenu(dishID);
+            console.log(controller.getFullMenu());
+        
             generalStateController.showDishDetail();
         });
     //}

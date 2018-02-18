@@ -25,7 +25,7 @@ var DinnerModel = function() {
 	this.setNumberOfGuests = function(num) {
 		numberOfGuests = num;
         notifyObservers();
-        console.log(numberOfGuests);
+        //console.log(numberOfGuests);
 	}
 	
 	this.getNumberOfGuests = function() {
@@ -99,6 +99,7 @@ var DinnerModel = function() {
                 menuDishes[2] = id;
                 break;
         }
+        notifyObservers();
 	}
 
 	//Removes dish from menu

@@ -12,42 +12,52 @@ this.numGuestContainer = container.find("#numberOfGuests");
     
     //console.log(dish);
  
-    $("#btn_addtomenu").click(function(){
+    /*$("#btn_addtomenu").click(function(){
       console.log(dish.ingredients[2].quantity);
-        });   
+        });*/   
     
-    /*var amount = [];
+    /*var amount;
     var amountElement = $("<p></p>");
-    
     $("#amount").append(amount);
     
     for (i in allDishes[0].ingredients) { 
-        amount.push((allDishes[0].ingredients[i].quantity * guests) + ' ' + allDishes[0].ingredients[i].unit);
+        amount = (allDishes[0].ingredients[i].quantity * guests) + ' ' + allDishes[0].ingredients[i].unit;
         //$("#amount").append(amount);
     }
     amountElement.text(amount);*/
     
 
-    for (i in dish.ingredients) { 
-        //amount = $("<p></p>").text(dish.ingredients[i].quantity * guests + ' ' + dish.ingredients[i].unit);
-        amount = $("<p></p>").text(dish.ingredients[i].quantity);
-        $("#amount").append(amount);
-    }
+ 
     
-    for (i in dish.ingredients) {
-        ingredient = $("<p></p>").text(dish.ingredients[i].name);
-        $("#ingredients").append(ingredient);
-    }
-    
-     for (i in dish.ingredients) {
-        price = $("<p></p>").text('SEK ' + dish.ingredients[i].price * guests);
-        $("#price").append(price);
-    }
+    var dishPriceElement = $("<span class='price'></span>");
+    $("#ingredientsViewTotPrice").append(dishPriceElement);
     
     this.update = function() {
         this.numGuestContainer.html(model.getNumberOfGuests());
         var dish = model.getDish(model.getDishID());
-        console.log(dish);
+        var guests = model.getNumberOfGuests();
+        
+        var i;
+        var dishPrice = 0;
+        
+        $("#amount").empty();
+        $("#ingredients").empty();
+        $("#price").empty();
+        
+        for (i in model.getDish(model.getDishID()).ingredients) {
+            dishPrice += model.getDish(model.getDishID()).ingredients[i].price*guests;
+        }
+        
+        dishPriceElement.text("SEK " + dishPrice);
+        
+        for (i in dish.ingredients) { 
+            amount = $("<p></p>").text(dish.ingredients[i].quantity * guests + ' ' + dish.ingredients[i].unit);
+            $("#amount").append(amount);
+            ingredient = $("<p></p>").text(dish.ingredients[i].name);
+            $("#ingredients").append(ingredient);
+             price = $("<p></p>").text('SEK ' + dish.ingredients[i].price * guests);
+            $("#price").append(price);
+        }
     }
     
     this.update();
