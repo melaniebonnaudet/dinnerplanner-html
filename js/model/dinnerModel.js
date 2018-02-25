@@ -55,40 +55,36 @@ var DinnerModel = function() {
 	}
 
 	//Returns all ingredients for all the dishes on the menu.
-	this.getAllIngredients = function() {  
-        /*var theMenuDishKey=0;
-        var key;
+	this.getAllIngredients = function() {
+        /*var key;
         var i;
         for(key in dishes) {
 			if(dishes[key].id == menuDishes[0] || dishes[key].id == menuDishes[1] || dishes[key].id == menuDishes[2]) {
-				theMenuDishKey = key;
-				for(i in dishes[theMenuDishKey].ingredients) {
-					menuIngredients.push(dishes[theMenuDishKey].ingredients[i]);
+				for(i in dishes[key].ingredients) {
+					menuIngredients.push(dishes[key].ingredients[i]);
 				}
 			}
 		}
 		//return menuIngredients[0].name;
+        console.log(menuIngredients);
 		return menuIngredients;*/
         var i;
         var j;
         var k;
-        var found = false;
-        var ifound = -1;
         
-        for (i in dishes) {
-            for (j in menuDishes) {
-            if (dishes[i].id == menuDishes[j])
-                found = true;
-                ifound = i;
+        this.emptyIngredients();
+        
+        for (i in menuDishes) {
+            for (j in dishes) {
+                if (menuDishes[i] == dishes[j].id) {
+                    for (k in dishes[j].ingredients) {
+                        menuIngredients.push(dishes[j].ingredients[k]);
+                    }
                 }
-        }
-        
-        if (found) {
-            for (k in dishes[i].ingredients) {
-               menuIngredients.push(dishes[ifound].ingrendients[k]);
             }
         }
-        
+        console.log(menuIngredients); 
+        //menuIngredients.push(dishes[0].ingredients[0]);
         return menuIngredients;
 	}
     
@@ -100,11 +96,10 @@ var DinnerModel = function() {
 
 	//Returns the total price of the menu (all the ingredients multiplied by number of guests).
 	this.getTotalMenuPrice = function() {
-        var i = 0;
+        var i;
         var menuprice = 0;
         for (i in menuIngredients) {
             menuprice += menuIngredients[i].price;
-            //menuprice += 2;
             //console.log(menuIngredients[i].price);
         }
         
@@ -143,6 +138,8 @@ var DinnerModel = function() {
         if (!found) {
         menuDishes.push(id);
             }
+        
+        this.getAllIngredients();
         //notifyObservers();
 	}
 

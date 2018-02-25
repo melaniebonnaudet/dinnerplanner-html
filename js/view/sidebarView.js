@@ -14,14 +14,18 @@ var SidebarView = function(container, model) {
         this.guestinput.attr("value", guests);
         var guests = model.getNumberOfGuests();
         
-        dishPrice = 0;
-        menu = model.getFullMenu();
+        var dishPrice;
+        var menu = model.getFullMenu();
+        var dishName;
+        var i;
+        var j;
 
         this.dishesInSidebar.empty();
         for (i in menu) {
-            dishName = model.getDish(menu[i]).name
+            dishPrice = 0;
+            dishName = model.getDish(menu[i]).name;
             //dish = $("<div class='col-xs-8'></div>").text(dishName);
-            
+              
             for (j in model.getDish(menu[i]).ingredients) {
                     dishPrice += model.getDish(menu[i]).ingredients[j].price*guests;
                 }

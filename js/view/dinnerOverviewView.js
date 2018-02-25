@@ -12,7 +12,7 @@ this.update = function() {
         var dishName = model.getDish(menu[i]).name;
         var dishImg = model.getDish(menu[i]).image;
         
-        var dishprice = 0;
+        var dishPrice = 0;
         for (j in model.getDish(menu[i]).ingredients) {
                     dishPrice += model.getDish(menu[i]).ingredients[j].price*guests;
                 }
