@@ -6,7 +6,7 @@ var DinnerModel = function() {
 
     var numberOfGuests = 3;
 
-    var menuDishes = [3,100,202];
+    var menuDishes = [];
     var menuIngredients = [];
     var dishID = 1;
     
@@ -56,7 +56,7 @@ var DinnerModel = function() {
 
 	//Returns all ingredients for all the dishes on the menu.
 	this.getAllIngredients = function() {  
-        var theMenuDishKey=0;
+        /*var theMenuDishKey=0;
         var key;
         var i;
         for(key in dishes) {
@@ -68,24 +68,55 @@ var DinnerModel = function() {
 			}
 		}
 		//return menuIngredients[0].name;
-		return menuIngredients;
+		return menuIngredients;*/
+        var i;
+        var j;
+        var k;
+        var found = false;
+        var ifound = -1;
+        
+        for (i in dishes) {
+            for (j in menuDishes) {
+            if (dishes[i].id == menuDishes[j])
+                found = true;
+                ifound = i;
+                }
+        }
+        
+        if (found) {
+            for (k in dishes[i].ingredients) {
+               menuIngredients.push(dishes[ifound].ingrendients[k]);
+            }
+        }
+        
+        return menuIngredients;
 	}
+    
+    this.emptyIngredients = function() {
+        while (menuIngredients.length>0) {
+            menuIngredients.pop();
+        }
+    }
 
 	//Returns the total price of the menu (all the ingredients multiplied by number of guests).
 	this.getTotalMenuPrice = function() {
         var i = 0;
         var menuprice = 0;
         for (i in menuIngredients) {
-            menuprice += menuIngredients[i].price
+            menuprice += menuIngredients[i].price;
+            //menuprice += 2;
+            //console.log(menuIngredients[i].price);
         }
+        
+        //console.log(menuprice);
+        //console.log(this.getNumberOfGuests());
         return menuprice * this.getNumberOfGuests();
-        notifyObservers();
 	}
 
 	//Adds the passed dish to the menu. If the dish of that type already exists on the menu
 	//it is removed from the menu and the new one added.
 	this.addDishToMenu = function(id) {
-		//menuDishes.push(id);
+		/*menuDishes.push(id);
         var dish;
         dish = this.getDish(id);
         switch (dish.type) {
@@ -98,8 +129,21 @@ var DinnerModel = function() {
             case "dessert":
                 menuDishes[2] = id;
                 break;
+        }*/
+        //menuDishes.push(id);
+        var i;
+        var found = false;
+        
+        for (i in menuDishes) {
+           if (this.getDish(menuDishes[i]).type == this.getDish(id).type) {
+               menuDishes.splice(i, 1, id);
+               found = true;
+           } 
         }
-        notifyObservers();
+        if (!found) {
+        menuDishes.push(id);
+            }
+        //notifyObservers();
 	}
 
 	//Removes dish from menu

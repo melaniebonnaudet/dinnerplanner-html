@@ -1,6 +1,10 @@
 var IngredientsView = function(container, model) { 
     
 this.numGuestContainer = container.find("#numberOfGuests");
+this.ingredientsViewTotPrice = container.find("#ingredientsViewTotPrice");
+this.amount = container.find("#amount");
+this.ingredients = container.find("#ingredients");
+this.price = container.find("#price");
 
    
     //var ingredient;
@@ -26,11 +30,8 @@ this.numGuestContainer = container.find("#numberOfGuests");
     }
     amountElement.text(amount);*/
     
-
- 
-    
     var dishPriceElement = $("<span class='price'></span>");
-    $("#ingredientsViewTotPrice").append(dishPriceElement);
+    this.ingredientsViewTotPrice.append(dishPriceElement);
     
     this.update = function() {
         this.numGuestContainer.html(model.getNumberOfGuests());
@@ -40,9 +41,9 @@ this.numGuestContainer = container.find("#numberOfGuests");
         var i;
         var dishPrice = 0;
         
-        $("#amount").empty();
-        $("#ingredients").empty();
-        $("#price").empty();
+        this.amount.empty();
+        this.ingredients.empty();
+        this.price.empty();
         
         for (i in model.getDish(model.getDishID()).ingredients) {
             dishPrice += model.getDish(model.getDishID()).ingredients[i].price*guests;
@@ -51,12 +52,12 @@ this.numGuestContainer = container.find("#numberOfGuests");
         dishPriceElement.text("SEK " + dishPrice);
         
         for (i in dish.ingredients) { 
-            amount = $("<p></p>").text(dish.ingredients[i].quantity * guests + ' ' + dish.ingredients[i].unit);
-            $("#amount").append(amount);
-            ingredient = $("<p></p>").text(dish.ingredients[i].name);
-            $("#ingredients").append(ingredient);
-             price = $("<p></p>").text('SEK ' + dish.ingredients[i].price * guests);
-            $("#price").append(price);
+            var amount = $("<p></p>").text(dish.ingredients[i].quantity * guests + ' ' + dish.ingredients[i].unit);
+            this.amount.append(amount);
+            var ingredient = $("<p></p>").text(dish.ingredients[i].name);
+            this.ingredients.append(ingredient);
+            var price = $("<p></p>").text('SEK ' + dish.ingredients[i].price * guests);
+            this.price.append(price);
         }
     }
     

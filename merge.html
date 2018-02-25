@@ -58,21 +58,17 @@
                 </div>
               </li>
               
-              <li id="starterInSidebar">
-                <!--<div class="col-xs-8">
-                    <span>Baked Brie</span>
-                </div>-->
-    
-            <!--    <div class="col-xs-4">
-                    <span class="dishprice">72.20</span>
-                </div> -->
+               <li id="dishesInSidebar">
+              </li>
+              
+              <!-- <li id="starterInSidebar">
               </li>
               
               <li id="mainDishInSidebar">
               </li>
               
               <li id="dessertInSidebar">
-              </li>
+              </li> -->
               
               
               
@@ -125,30 +121,30 @@
           
           <div class="panel-body">
               
-          <div class="container col-sm-12">
+          <div class="container col-xs-12">
               <hr>
-          <div class="col-sm-3" id="amount">
+          <div class="col-xs-3" id="amount">
          <!-- <p>amount</p>
             <p>amount</p> -->
           </div>
-           <div class="col-sm-6" id="ingredients">
+           <div class="col-xs-6" id="ingredients">
         <!--  <p>ingredient</p>
             <p>ingredient</p> -->
           </div>
-          <div class="col-sm-3" id="price">
+          <div class="col-xs-3" id="price">
         <!--  <p>SEK 0.00</p>
         <p>SEK 0.00</p> -->
           </div>
               </div>
               
-        <div class="col-sm-12">
+        <div class="col-xs-12">
           <hr>
-            <div class="col-sm-9">
+            <div class="col-xs-9">
             <p>
         <button class="btn btn-warning" id="btn_addtomenu">add to menu</button>
                 </p>
             </div>
-            <div class="col-sm-3">
+            <div class="col-xs-3">
               <p id="ingredientsViewTotPrice">
           <!-- <span class="price">SEK 0.00</span> -->
                   </p>
@@ -170,15 +166,15 @@
          <h4>FIND A DISH</h4>
         </div>
         
-        <select name="typeOfDish" id="typeOfDish" onchange="myfunction()">
-            <option value="all">all</option>
+        <!-- <select name="typeOfDish" id="typeOfDish" onchange="myfunction()"> -->
+        <select name="typeOfDish" id="typeOfDish">
             <option value="starter">starter</option>
             <option value="main dish">main dish</option>
             <option value="dessert">dessert</option>
         </select>
          
      
-        <input type="text" placeholder="Enter key words">
+        <input type="text" placeholder="Enter key words" id="searchInput">
      
         <button class="btn btn-warning" id="searchButton">search</button> 
      
@@ -229,9 +225,9 @@
 <!-- ----- DINNER OVERVIEW ----- -->    
       
 <div id="dinnerOverview">
-    <div class="col-sm-12">
-  <div class="col-md-2" id="OverviewStarter">
-   <!-- <div class="thumbnail">
+    <div class="col-sm-12" id="OverviewDishes">
+  <!--<div class="col-md-2" id="OverviewStarter">
+    <div class="thumbnail">
         <img src="images/bakedbrie.jpg" alt="Baked Brie" id="imgDinnerOverview">
         <div class="caption">
           <p>Baked Brie</p>
@@ -240,31 +236,31 @@
     </div> -->
 </div>
         
-  <div class="col-md-2" id="OverviewMaindish">
-    <!-- <div class="thumbnail">
+  <!-- <div class="col-md-2" id="OverviewMaindish">
+     <div class="thumbnail">
         <img src="images/icecream.jpg" alt="Ice Cream" id="imgDinnerOverview">
         <div class="caption">
           <p>Ice Cream</p>
              <p id="dishprice">180.60 SEK</p>
         </div>
-    </div> -->
+    </div> 
   </div>
         
   <div class="col-md-2" id="OverviewDessert">
-    <!-- <div class="thumbnail">
+     <div class="thumbnail">
         <img src="images/meatballs.jpg" alt="Meatballs" id="imgDinnerOverview">
         <div class="caption">
           <p>Meatballs</p>
              <p id="dishprice">83.40 SEK</p>
         </div>
-    </div> -->
-  </div> 
+    </div> 
+  </div> -->
 
       <div class="col-md-2 line">
             <span>Total:<br></span>
                 <span id="totalPrice"></span> 
       </div>    
-</div>
+
       
      
       

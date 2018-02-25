@@ -3,6 +3,7 @@ $(function() {
 	var model = new DinnerModel();
 	
 	// And create the instance of ExampleView
+    //col-lg-3 för input text och type option
     
 	var exampleView = new ExampleView($("#exampleView"), model);
     
@@ -14,11 +15,11 @@ $(function() {
     
     var allDishesView = new AllDishesView($("#allDishesView"), model);
     
-    var startersView = new StartersView($("#startersView"), model);
+    //var startersView = new StartersView($("#startersView"), model);
     
-    var mainDishView = new MainDishView($("#mainDishView"), model);
+    //var mainDishView = new MainDishView($("#mainDishView"), model);
     
-    var dessertsView = new DessertsView($("#dessertsView"), model);
+    //var dessertsView = new DessertsView($("#dessertsView"), model);
     
     var dishDetailView = new DishDetailView($("#dishDetailView"), model);
     
@@ -70,7 +71,7 @@ $(function() {
         });
 });
 
-function myfunction() {
+/*function myfunction() {
               var x = document.getElementById("typeOfDish").value;
               $("#allDishesView").hide();
               $("#startersView").hide();
@@ -91,7 +92,7 @@ function myfunction() {
                       break;
                       
               }
-          }
+          }*/
 
 
 

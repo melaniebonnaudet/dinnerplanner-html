@@ -1,20 +1,23 @@
 var DishesViewController = function (view, controller, generalStateController) {
      
-    //var generalStateController = new GeneralStateController();
-    
-    //this.update = function() {
-        $(document).on('click', '#allDishesView .dishButton', function(evt) {
-            //var dishID = $(this).attr("id");
-            var dishID = evt.target.getAttribute("value");
-            console.log(dishID);
-            controller.setDishID(dishID);
-            controller.addDishToMenu(dishID);
-            console.log(controller.getFullMenu());
-        
-            generalStateController.showDishDetail();
-        });
-    //}
+    $(document).on('click', '#allDishesView .dishButton', function(evt) {
+        //var dishID = $(this).attr("id");
+        var dishID = evt.target.getAttribute("value");
+        console.log(dishID);
+        controller.setDishID(dishID);
 
-    //this.update();
-    //controller.addObserver(this);
+        generalStateController.showDishDetail();
+    });
+
+      $("#btn_addtomenu").click(function() {
+            //controller.emptyIngredients();
+            controller.addDishToMenu(controller.getDishID());
+            console.log(controller.getFullMenu());
+        });
+
+        $("#searchButton").click(function() {
+            view.update(view.searchVal);
+            console.log($("#searchInput").val());
+            console.log(controller.getFullMenu());
+        });
 }
