@@ -140,7 +140,7 @@ var DinnerModel = function() {
             }
         
         this.getAllIngredients();
-        //notifyObservers();
+        notifyObservers();
 	}
 
 	//Removes dish from menu
