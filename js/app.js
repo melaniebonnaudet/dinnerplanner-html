@@ -9,7 +9,7 @@ $(function() {
     
     var sidebarView = new SidebarView($("#sidebarView"), model);
     
-    var ingredientsView = new IngredientsView($("#ingredientsView"), model);
+    //var ingredientsView = new IngredientsView($("#ingredientsView"), model);
     
     var menuHeaderView = new MenuHeaderView($("#menuHeader"), model);
     
@@ -21,7 +21,7 @@ $(function() {
     
     //var dessertsView = new DessertsView($("#dessertsView"), model);
     
-    var dishDetailView = new DishDetailView($("#dishDetailView"), model);
+    //var dishDetailView = new DishDetailView($("#dishDetailView"), model);
     
     var dinnerOverviewView = new DinnerOverviewView($("#dinnerOverviewView"), model);
     
