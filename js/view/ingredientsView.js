@@ -1,75 +1,54 @@
 var IngredientsView = function(container, model) { 
+
+var _this = this;
     
 this.numGuestContainer = container.find("#numberOfGuests");
 this.ingredientsViewTotPrice = container.find("#ingredientsViewTotPrice");
 this.amount = container.find("#amount");
 this.ingredients = container.find("#ingredients");
 this.price = container.find("#price");
-
-   
-    //var ingredient;
-    //var allDishes = model.getDishes();
-    var i;
     
-    var guests = model.getNumberOfGuests();
-    var dish = model.getDish(model.getDishID());
-    
-    //console.log(dish);
- 
-    /*$("#btn_addtomenu").click(function(){
-      console.log(dish.ingredients[2].quantity);
-        });*/   
-    
-    /*var amount;
-    var amountElement = $("<p></p>");
-    $("#amount").append(amount);
-    
-    for (i in allDishes[0].ingredients) { 
-        amount = (allDishes[0].ingredients[i].quantity * guests) + ' ' + allDishes[0].ingredients[i].unit;
-        //$("#amount").append(amount);
-    }
-    amountElement.text(amount);*/
-    
-    var dishPriceElement = $("<span class='price'></span>");
-    this.ingredientsViewTotPrice.append(dishPriceElement);
+var dishPriceElement = $("<span class='price'></span>");
+this.ingredientsViewTotPrice.append(dishPriceElement);
     
     this.update = function() {
-        this.numGuestContainer.html(model.getNumberOfGuests());
-        var dish = model.getDish(model.getDishID());
+        
         var guests = model.getNumberOfGuests();
+        this.numGuestContainer.html(guests);
         
-        var i;
-        var dishPrice = 0;
+        model.getDish(model.getDishID(), function(dish){
+
+            var i;
+            var quantity;
+            var ingrendient;
+           
+            _this.amount.empty();
+            _this.ingredients.empty();
+
+            
+            for (i in dish.extendedIngredients) { 
+                quantity = $("<p></p>").text(dish.extendedIngredients[i].amount * guests + ' ' + dish.extendedIngredients[i].unit);
+                
+                _this.amount.append(quantity);
+                
+                ingredient = $("<p></p>").text(dish.extendedIngredients[i].name);
+                
+                _this.ingredients.append(ingredient);
+            }
+            
+            var dishPrice = (dish.pricePerServing / dish.servings) * guests;
+            dishPrice = dishPrice.toFixed(2);
+            dishPriceElement.text("SEK " + dishPrice);
+            
+        }, function(error) {
+         /* do something with the error */
+        });
         
-        this.amount.empty();
-        this.ingredients.empty();
-        this.price.empty();
-        
-        for (i in model.getDish(model.getDishID()).ingredients) {
-            dishPrice += model.getDish(model.getDishID()).ingredients[i].price*guests;
-        }
-        
-        dishPriceElement.text("SEK " + dishPrice);
-        
-        for (i in dish.ingredients) { 
-            var amount = $("<p></p>").text(dish.ingredients[i].quantity * guests + ' ' + dish.ingredients[i].unit);
-            this.amount.append(amount);
-            var ingredient = $("<p></p>").text(dish.ingredients[i].name);
-            this.ingredients.append(ingredient);
-            var price = $("<p></p>").text('SEK ' + dish.ingredients[i].price * guests);
-            this.price.append(price);
-        }
+       
+      
     }
     
     this.update();
     model.addObserver(this);
-    
-   /* $("#btn_addtomenu").click(function(){
-        
-     for (i in allDishes[0].ingredients) {
-        price = 0;
-      console.log(price += allDishes[0].ingredients[i].price);
-          }
-        }); */
         
 }

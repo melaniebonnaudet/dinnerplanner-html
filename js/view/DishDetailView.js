@@ -9,11 +9,22 @@ var DishDetailView = function (container, model) {
     container.append(dishDetail);
         
     this.update = function() {
-        var dish = model.getDish(model.getDishID());
-        $("#imgDishDetail").attr("src", "images/" + dish.image);
-        $("#dishDetailName").text(dish.name);
-        $("#dishDetailDescription").text(dish.description);
-        $("#imgText").text(dish.description); 
+        //var dish = model.getDish(model.getDishID());
+        
+        model.getDish(model.getDishID(), function(dish){
+             /* do something with new dishes */ 
+                $("#imgDishDetail").attr("src", dish.image);
+                $("#dishDetailName").text(dish.title);
+                $("#dishDetailDescription").text(dish.instructions);
+                $("#imgText").text("Preparation time: " + dish.readyInMinutes + " min");
+              console.log(dish);
+            }, function(error) {
+             /* do something with the error */
+        });
+        
+        //console.log(model.getDishID());
+      
+       
      }
      
     this.update();

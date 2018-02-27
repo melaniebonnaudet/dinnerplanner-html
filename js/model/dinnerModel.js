@@ -178,21 +178,15 @@ var DinnerModel = function() {
     }
     
 	//function that returns a dish of specific ID
-	this.getDish = function (id) {
-        /*var key;
-        for(key in dishes) {
-			if(dishes[key].id == id) {
-				return dishes[key];
-			}
-		}*/
-        
+	this.getDish = function (id, callback, errorCallback) {
         $.ajax( {
            url: 'https://spoonacular-recipe-food-nutrition-v1.p.mashape.com/recipes/'+ id +'/information',
            headers: {
              'X-Mashape-Key': 'Qu9grxVNWpmshA4Kl9pTwyiJxVGUp1lKzrZjsnghQMkFkfA4LB'
            },
            success: function(data) {
-             callback(data)
+            //console.log(data);
+            callback(data)
            },
            error: function(error) {
              errorCallback(error)
