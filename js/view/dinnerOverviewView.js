@@ -8,7 +8,27 @@ this.update = function() {
     var guests = model.getNumberOfGuests();
     $("#OverviewDishes").empty();
     
+    
     for (i in menu) {
+        model.getDish(menu[i], function(dish){
+             /* do something with new dishes */ 
+            
+            console.log(dish);
+            
+            var dishName = dish.title;
+            var dishImg = dish.image;
+            var dishPrice = (dish.pricePerServing / dish.servings) * guests;
+            dishPrice = dishPrice.toFixed(2);
+            
+             var menuDishElement =  '<div class="col-md-2"><div class="thumbnail"><img src="' + dishImg + '" id="imgDinnerOverview"><div class="caption"><p>' + dishName + '</p><p id="dishPrice">SEK ' + dishPrice + '</p></div></div></div>'
+        
+         $("#OverviewDishes").append(menuDishElement);
+            }, function(error) {
+             /* do something with the error */
+            });
+    }
+    
+    /*for (i in menu) {
         var dishName = model.getDish(menu[i]).name;
         var dishImg = model.getDish(menu[i]).image;
         
@@ -20,78 +40,10 @@ this.update = function() {
          var menuDishElement =  '<div class="col-md-2"><div class="thumbnail"><img src="images/' + dishImg + '" id="imgDinnerOverview"><div class="caption"><p>' + dishName + '</p><p id="dishPrice">SEK ' + dishPrice + '</p></div></div></div>'
         
          $("#OverviewDishes").append(menuDishElement);
-    }
+    }*/
     
-    $("#totalPrice").text("SEK " + model.getTotalMenuPrice());
-    /*var starterID;
-    var starterName;
-    var starterImg;
-    var menuStarterElement;
+    //$("#totalPrice").text("SEK " + model.getTotalMenuPrice());
     
-    starterID = model.getSelectedDish("starter"); 
-    maindishID = model.getSelectedDish("main dish");
-    dessertID = model.getSelectedDish("dessert"); 
-    
-    
-        starterName = model.getDish(starterID).name;
-        starterImg = model.getDish(starterID).image;
-
-        var maindishID;
-        var maindishName;
-        var maindishImg;
-        var menuMaindishElement;
-
-        maindishName = model.getDish(maindishID).name;
-        maindishImg = model.getDish(maindishID).image;
-
-        var dessertID;
-        var dessertName;
-        var dessertImg;
-        var menuDessertElement;
-
-        dessertName = model.getDish(dessertID).name;
-        dessertImg = model.getDish(dessertID).image;
-
-         menuStarterElement =  '<div class="thumbnail"><img src="images/' + starterImg + '" id="imgDinnerOverview"><div class="caption"><p>' + starterName + '</p><p id="starterPrice"></p></div></div>'
-
-        $("#OverviewStarter").empty();
-        $("#OverviewStarter").append(menuStarterElement);
-
-         menuMaindishElement =  '<div class="thumbnail"><img src="images/' + maindishImg + '" id="imgDinnerOverview"><div class="caption"><p>' + maindishName + '</p><p id="maindishPrice"></p></div></div>'
-
-        $("#OverviewMaindish").empty();
-        $("#OverviewMaindish").append(menuMaindishElement);
-
-         menuDessertElement =  '<div class="thumbnail"><img src="images/' + dessertImg + '" id="imgDinnerOverview"><div class="caption"><p>' + dessertName + '</p><p id="dessertPrice"></p></div></div>'
-
-        $("#OverviewDessert").empty();
-        $("#OverviewDessert").append(menuDessertElement);
-
-            var i;
-            var starterPrice = 0;
-            var maindishPrice = 0;
-            var dessertPrice = 0;
-
-            var guests = model.getNumberOfGuests();
-
-            for (i in model.getDish(starterID).ingredients) {
-                starterPrice += model.getDish(starterID).ingredients[i].price*guests;
-            }
-
-            for (i in model.getDish(maindishID).ingredients) {
-                maindishPrice += model.getDish(maindishID).ingredients[i].price*guests;
-            }
-
-            for (i in model.getDish(dessertID).ingredients) {
-                dessertPrice += model.getDish(dessertID).ingredients[i].price*guests;
-            }
-
-            $("#totalPrice").text("SEK " + model.getTotalMenuPrice());
-
-            $("#starterPrice").text("SEK " + starterPrice);
-            $("#maindishPrice").text("SEK " + maindishPrice);
-            $("#dessertPrice").text("SEK " + dessertPrice);*/
-        
     }
     
     this.update();

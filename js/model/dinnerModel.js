@@ -96,7 +96,7 @@ var DinnerModel = function() {
 
 	//Returns the total price of the menu (all the ingredients multiplied by number of guests).
 	this.getTotalMenuPrice = function() {
-        var i;
+       /* var i;
         var menuprice = 0;
         for (i in menuIngredients) {
             menuprice += menuIngredients[i].price;
@@ -105,7 +105,39 @@ var DinnerModel = function() {
         
         //console.log(menuprice);
         //console.log(this.getNumberOfGuests());
-        return menuprice * this.getNumberOfGuests();
+        return menuprice * this.getNumberOfGuests();*/
+        
+        var _this = this;
+        var totalMenuPrice = 0;
+        var dishPrice = 0;
+        
+        var counter = 0;
+
+        console.log("num of dishes "+menuDishes.length);
+        for (i in menuDishes) {
+ 
+            this.getDish(menuDishes[i], function(dish){
+     
+               
+                dishPrice += (dish.pricePerServing / dish.servings) * _this.getNumberOfGuests();
+                totalMenuPrice += dishPrice;
+                //console.log(this.getNumberOfGuests());
+                
+                console.log(dishPrice);
+                //console.log(_this.getNumberOfGuests());
+                console.log("before "+ counter);
+                counter++;
+                console.log("after "+ counter);
+                
+                /*if (counter == menuDishes.length) {
+                    totalMenuPrice = dishPrice;
+                }*/
+                
+                }, function(error) {
+                
+                });
+        }
+
 	}
 
 	//Adds the passed dish to the menu. If the dish of that type already exists on the menu
@@ -125,8 +157,9 @@ var DinnerModel = function() {
                 menuDishes[2] = id;
                 break;
         }*/
-        //menuDishes.push(id);
-        var i;
+        menuDishes.push(id);
+        notifyObservers();
+        /*var i;
         var found = false;
         
         for (i in menuDishes) {
@@ -140,7 +173,12 @@ var DinnerModel = function() {
             }
         
         this.getAllIngredients();
-        notifyObservers();
+        notifyObservers();*/
+        
+       /* if (!menuDishes.some(d => d.id == dish.id)) {
+			menuDishes.push(dish);    
+		}
+        notifyObservers();*/
 	}
 
 	//Removes dish from menu
@@ -203,6 +241,7 @@ var DinnerModel = function() {
     }
     
     var notifyObservers = function() {
+        
         for (var i=0; i<observers.length; i++) {
             //console.log(observers);
              observers[i].update();

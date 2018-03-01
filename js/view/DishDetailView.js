@@ -17,7 +17,6 @@ var DishDetailView = function (container, model) {
                 $("#dishDetailName").text(dish.title);
                 $("#dishDetailDescription").text(dish.instructions);
                 $("#imgText").text("Preparation time: " + dish.readyInMinutes + " min");
-              console.log(dish);
             }, function(error) {
              /* do something with the error */
         });
