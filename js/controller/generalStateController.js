@@ -6,6 +6,7 @@ var GeneralStateController = function() {
     $("#dinnerPrintout").hide();
     $("#sidebar").hide();
     $("#dishDetail").hide();
+    $(".loader").hide();
     
     this.showAllDishesView = function() {
         $("#allDishes").show();

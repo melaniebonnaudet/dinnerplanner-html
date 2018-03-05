@@ -2,25 +2,37 @@ var AllDishesView = function (container, model) {
     
     this.update = function() {
         
-        container.empty();
-        //var typeVal = document.getElementById("typeOfDish").value;
-        //var searchVal = document.getElementById("searchInput").value;
+        this.type = container.find("#typeOfDish");
+        this.search = container.find("#searchInput");
         
-        var typeVal = $("#typeOfDish").val();
-        var searchVal = $("#searchInput").val();
-        
-        var key;
-        var dish;
-    
+        var typeVal = this.type.val();
+        var searchVal = this.search.val();
         //console.log(typeVal);
         //console.log(searchVal);
+         
+        var key;
+        var dish;
+             
+        var _this = this;
+        this.dishContainer = container.find("#allDishesView");
+        
+        this.dishContainer.empty();
+        
+        var loader = $("<div>");
+        loader.attr("class", "loader");
+        this.dishContainer.append(loader);
         
         model.getAllDishes(typeVal, searchVal, function(dishes){
             console.log(dishes);
             
+            container.find(".loader").hide();
+            
             for (key in dishes.results) {
+                /*if ((key+1) % 4 == 0) {
+                    var rowWrapper = "<div class='row'>"
+                }*/
                 dish = '<div class="col-md-3 dishButton" name="dish" id="'+ dishes.results[key].id +'" value="'+ dishes.results[key].id +'"><div class="thumbnail"><img value="'+ dishes.results[key].id +'" src="https://spoonacular.com/recipeImages/' + dishes.results[key].image + '" style="width:100%"><div class="caption"><p id="dishName">' + dishes.results[key].title + '</p></div></div></div>';       
-                container.append(dish);
+                _this.dishContainer.append(dish);
             }
             }, function(error) {
              /* do something with the error */

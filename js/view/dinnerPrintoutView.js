@@ -6,10 +6,21 @@ this.update = function() {
     container.empty();
   
     for (i in menu) {
-        dishPrintout = '<div class="col-sm-12"><div class="col-sm-2"><img src="images/' + model.getDish(menu[i]).image + '"></div><div class="col-sm-4"><div class = "dishname-header"><h3>' + model.getDish(menu[i]).name + '</h3></div><p>' + model.getDish(menu[i]).description + '</p></div><div class="col-sm-5"><div class = "preparation-header"><h3>PREPARATION</h3></div><p>' + model.getDish(menu[i]).description + '</p></div></div>'
+        
+        model.getDish(menu[i], function(dish){
+            
+            var dishImg = dish.image;
+            var dishName = dish.title;
+            var dishDescription = dish.instructions;
+        
+            dishPrintout = '<div class="col-sm-12"><div class="col-xs-3"><p><img src="' + dishImg + '" style="width: 100%;"></p></div><div class="col-xs-4"><div class = "dishname-header"><h3>' + dishName + '</h3></div><p>' + dishDescription + '</p></div><div class="col-xs-5"><div class = "preparation-header"><h3>PREPARATION</h3></div><p>' + dishDescription + '</p></div></div>'
 
-        container.append(dishPrintout);
-        }
+            container.append(dishPrintout);
+            
+         }, function(error) {
+         /* do something with the error */
+        });
+    }
     
     /*var allDishes = model.getDishes();
     var starterID = model.getSelectedDish("starter");

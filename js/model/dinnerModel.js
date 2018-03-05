@@ -175,8 +175,8 @@ var DinnerModel = function() {
         this.getAllIngredients();
         notifyObservers();*/
         
-       /* if (!menuDishes.some(d => d.id == dish.id)) {
-			menuDishes.push(dish);    
+       /*if (!menuDishes.some(d => d.id == id.id)) {
+			menuDishes.push(id);    
 		}
         notifyObservers();*/
 	}
@@ -200,8 +200,16 @@ var DinnerModel = function() {
 	//you can use the filter argument to filter out the dish by name or ingredient (use for search)
 	//if you don't pass any filter all the dishes will be returned
 	this.getAllDishes = function (type, filter, callback, errorCallback) {
+        var number = "";
+        if (type == "all") {
+            type = "";
+            number = "100";
+        }
+        
+        var url = 'https://spoonacular-recipe-food-nutrition-v1.p.mashape.com/recipes/search?type=' + type + '&query=' + filter + '&number=' + number;
+        
         $.ajax( {
-           url: 'https://spoonacular-recipe-food-nutrition-v1.p.mashape.com/recipes/search?type=' + type,
+           url: url,
            headers: {
              'X-Mashape-Key': 'Qu9grxVNWpmshA4Kl9pTwyiJxVGUp1lKzrZjsnghQMkFkfA4LB'
            },

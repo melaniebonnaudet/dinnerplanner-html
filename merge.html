@@ -12,7 +12,8 @@
       
   </head>
   <body>
-         
+        
+      
     <div class="jumbotron">
         <h1 class="text-center">Dinner planner</h1>
     </div> 
@@ -94,7 +95,11 @@
       
 <div id="dishDetail">
   <div class="col-sm-8">
+     <div class="loader"></div>
+      <div class="detailsContainer">
         <div class="col-sm-6" id="dishDetailView">
+            
+            
       <!--  <div class = "dishname-header">
         <h3>baked brie</h3>
         </div>
@@ -154,7 +159,7 @@
               </div>
           </div>
           </div>
-    
+    </div>
   </div>      
 </div>
  
@@ -183,6 +188,7 @@
      
     <div class="row">
         <div id="allDishesView"> 
+            <div class="loader"></div>
 
     <!--<div class="col-md-2" id="bakedbrie">
     <div class="thumbnail">
@@ -363,7 +369,7 @@
     <script src="js/view/DishDetailView.js"></script>
     <script src="js/view/menuHeaderView.js"></script>
     <script src="js/view/dinnerOverviewView.js"></script> 
-    <!-- <script src="js/view/dinnerPrintoutView.js"></script>-->
+    <script src="js/view/dinnerPrintoutView.js"></script>
     <script src="js/controller/generalStateController.js"></script>
     <script src="js/controller/SidebarViewController.js"></script>
     <script src="js/controller/dishesViewController.js"></script>

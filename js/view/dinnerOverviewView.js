@@ -3,11 +3,15 @@ var DinnerOverviewView = function(container, model) {
 this.update = function() {
    
     var i;
-    var j;
+    
+    var dishName;
+    var dishImg;
+    
     var menu = model.getFullMenu();
     var guests = model.getNumberOfGuests();
+    var dishPrice = 0;
+    var totalMenuPrice = 0;
     $("#OverviewDishes").empty();
-    
     
     for (i in menu) {
         model.getDish(menu[i], function(dish){
@@ -15,10 +19,14 @@ this.update = function() {
             
             console.log(dish);
             
-            var dishName = dish.title;
-            var dishImg = dish.image;
-            var dishPrice = (dish.pricePerServing / dish.servings) * guests;
+            dishName = dish.title;
+            dishImg = dish.image;
+            
+            dishPrice = (dish.pricePerServing / dish.servings) * guests;
             dishPrice = dishPrice.toFixed(2);
+            totalMenuPrice += parseInt(dishPrice);
+            
+            $("#totalPrice").text("SEK " + totalMenuPrice);
             
              var menuDishElement =  '<div class="col-md-2"><div class="thumbnail"><img src="' + dishImg + '" id="imgDinnerOverview"><div class="caption"><p>' + dishName + '</p><p id="dishPrice">SEK ' + dishPrice + '</p></div></div></div>'
         

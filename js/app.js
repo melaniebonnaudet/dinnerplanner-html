@@ -13,7 +13,7 @@ $(function() {
     
     var menuHeaderView = new MenuHeaderView($("#menuHeader"), model);
     
-    var allDishesView = new AllDishesView($("#allDishesView"), model);
+    var allDishesView = new AllDishesView($("#allDishes"), model);
     
     //var startersView = new StartersView($("#startersView"), model);
     
@@ -21,11 +21,11 @@ $(function() {
     
     //var dessertsView = new DessertsView($("#dessertsView"), model);
     
-    var dishDetailView = new DishDetailView($("#dishDetailView"), model);
+    var dishDetailView = new DishDetailView($("#dishDetail"), model);
     
     var dinnerOverviewView = new DinnerOverviewView($("#dinnerOverviewView"), model);
     
-    //var dinnerPrintoutView = new DinnerPrintoutView($("#dinnerPrintout"), model);
+    var dinnerPrintoutView = new DinnerPrintoutView($("#dinnerPrintout"), model);
     
     var generalStateController = new GeneralStateController();
     
