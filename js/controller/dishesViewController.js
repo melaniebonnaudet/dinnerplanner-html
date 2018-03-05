@@ -14,6 +14,13 @@ var DishesViewController = function (view, controller, generalStateController) {
             controller.addDishToMenu(controller.getDishID());
             console.log(controller.getFullMenu());
         });
+    
+      $("#btn_removeFromMenu").click(function() {
+            //controller.emptyIngredients();
+            controller.removeDishFromMenu(controller.getDishID());
+            console.log(controller.getDishID());
+            console.log(controller.getFullMenu());
+        });
 
         $("#searchButton").click(function() {
             view.update(view.searchVal);

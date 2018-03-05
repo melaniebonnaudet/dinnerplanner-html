@@ -183,7 +183,7 @@ var DinnerModel = function() {
 
 	//Removes dish from menu
 	this.removeDishFromMenu = function(id) {
-        if (menuDishes[0] == id) {
+       /* if (menuDishes[0] == id) {
             menuDishes[0] = 0;
         }
         
@@ -193,7 +193,15 @@ var DinnerModel = function() {
         
         else if (menuDishes[2] == id) {
             menuDishes[2] = 0;
-        }   
+        }   */
+        var i;
+        
+        for (i in menuDishes) {
+           if (menuDishes[i] == id) {
+               menuDishes.splice(i, 1)
+                notifyObservers();
+           }
+        }
 	}
 
 	//function that returns all dishes of specific type (i.e. "starter", "main dish" or "dessert")

@@ -25,9 +25,16 @@ var SidebarView = function(container, model) {
 
         _this.dishesInSidebar.empty();
         
+        /*var loader = $("<div>");
+        loader.attr("class", "loader");
+        _this.dishesInSidebar.append(loader);*/
+        
         for (i in menu) {
     
             model.getDish(menu[i], function(dishes){
+                
+                
+                //container.find(".loader").hide();
 
                 dishName = dishes.title;
                 dishPrice = (dishes.pricePerServing / dishes.servings) * guests;
@@ -41,8 +48,6 @@ var SidebarView = function(container, model) {
                 
                 //var totalMenuPrice = 0;
                 //totalMenuPrice += (dishes.pricePerServing / dishes.servings) * guests;
-                
-                
                 
                 }, function(error) {
                  /* do something with the error */
@@ -92,7 +97,6 @@ var SidebarView = function(container, model) {
                 //console.log(_this.getNumberOfGuests());
                 
                 
-
                 _updateScope.menuPrice.text("SEK " + dishPrice);
                 
                 }, function(error) {
