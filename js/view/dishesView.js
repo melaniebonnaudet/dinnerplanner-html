@@ -25,6 +25,10 @@ var AllDishesView = function (container, model) {
         model.getAllDishes(typeVal, searchVal, function(dishes){
             console.log(dishes);
             
+            if (dishes.results.length == 0) {
+                alert("no results for this search!");
+            }
+            
             container.find(".loader").hide();
             
             for (key in dishes.results) {

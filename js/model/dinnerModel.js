@@ -226,7 +226,8 @@ var DinnerModel = function() {
                callback(data)
            },
            error: function(error) {
-             errorCallback(error)
+               errorCallback(error)
+            alert("You have no internet connection!");
            }
          })
     }
